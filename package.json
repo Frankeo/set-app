@@ -1,0 +1,46 @@
+{
+  "name": "set-app",
+  "version": "1.0.0",
+  "description": "Create a react app without so much configuration going around. A lighter version of Create React App with enough config for start your react application but the right amount of power to generate a production ready bundle following Software Engeniering practices",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "ts-node ./src/index.ts",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "eslint \"src/**/*.ts\" --quiet",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Frankeo/set-app.git"
+  },
+  "keywords": [
+    "CRA",
+    "setapp",
+    "set-app",
+    "setup",
+    "Create",
+    "React",
+    "App"
+  ],
+  "author": "Francisco Moreno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Frankeo/set-app/issues"
+  },
+  "homepage": "https://github.com/Frankeo/set-app#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^29.4.0",
+    "@types/node": "18.11.18",
+    "@typescript-eslint/eslint-plugin": "5.50.0",
+    "@typescript-eslint/parser": "5.50.0",
+    "eslint": "8.33.0",
+    "eslint-config-prettier": "8.6.0",
+    "jest": "^29.4.1",
+    "prettier": "2.8.3",
+    "ts-jest": "^29.0.5",
+    "ts-node": "10.9.1",
+    "typescript": "4.9.5"
+  }
+}

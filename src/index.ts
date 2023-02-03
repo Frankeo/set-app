@@ -1,6 +1,8 @@
 #!/usr/bin/env node
+import { createPackageJson } from "./create-package-json.js";
+import { createProjectStructure } from "./create-project-structure.js";
 
-import { getGreeting } from "./getGreeting";
-
-const greeting = getGreeting("John");
-console.log(greeting);
+const name = "Prueba";
+const projectDirectory = createProjectStructure(name);
+await createPackageJson(projectDirectory);
+console.log(`Project ${name} created!`);

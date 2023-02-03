@@ -2,9 +2,11 @@
   "name": "set-app",
   "version": "1.0.0",
   "description": "Create a react app without so much configuration going around. A lighter version of Create React App with enough config for start your react application but the right amount of power to generate a production ready bundle following Software Engeniering practices",
+  "type": "module",
   "main": "index.js",
+  "bin": "./dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build": "rm -rf dist && tsc",
     "start": "ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
@@ -29,7 +31,9 @@
     "url": "https://github.com/Frankeo/set-app/issues"
   },
   "homepage": "https://github.com/Frankeo/set-app#readme",
-  "dependencies": {},
+  "dependencies": {
+    "zx": "^7.1.1"
+  },
   "devDependencies": {
     "@types/jest": "^29.4.0",
     "@types/node": "18.11.18",

@@ -1,12 +1,12 @@
 import { mkdirSync, existsSync } from "fs";
-import { join } from "path";
+import { getProjectPath, getSrcPath } from "./common/paths.js";
 
-export const createProjectStructure = (name: string): string => {
-  const projectDirectory = join(process.cwd(), name);
+export const createProjectStructure = (name: string) => {
+  const projectDirectory = getProjectPath(name);
   if (existsSync(projectDirectory))
     throw new Error(`Project ${name} already exists!`);
+
   mkdirSync(projectDirectory);
-  const sourceDirectory = join(projectDirectory, "src");
+  const sourceDirectory = getSrcPath(name);
   mkdirSync(sourceDirectory);
-  return projectDirectory;
 };

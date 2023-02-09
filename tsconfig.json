@@ -4,7 +4,7 @@
     "target": "ES2022",
     "outDir": "dist",
     "rootDir": "src",
-    "types": ["node", "jest"],
+    "types": ["node"],
     "strict": true,
     "sourceMap": true,
     "module": "ES2022",
@@ -17,5 +17,9 @@
     "experimentalSpecifierResolution": "node"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "src/**/*.test.ts"]
+  "exclude": [
+    "node_modules",
+    "src/**/*.test.ts",
+    "src/full-content/**.{js|jsx}"
+  ]
 }

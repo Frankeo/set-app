@@ -1,20 +1,13 @@
 {
-  "name": "set-app",
-  "version": "1.0.0",
-  "description": "Create a react app without so much configuration going around. A lighter version of Create React App with enough config for start your react application but the right amount of power to generate a production ready bundle following Software Engeniering practices",
-  "type": "module",
-  "main": "index.js",
-  "bin": "./dist/index.js",
-  "scripts": {
-    "build": "rm -rf dist && tsc",
-    "start": "ts-node ./src/index.ts",
-    "format": "prettier --write \"src/**/*.ts\"",
-    "lint": "eslint \"src/**/*.ts\" --quiet",
-    "test": "vitest"
-  },
+  "name": "@set-app/main",
+  "description": "Main repo",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Frankeo/set-app.git"
+  },
+  "scripts": {
+    "cli": "yarn workspace @set-app/cli start"
   },
   "keywords": [
     "CRA",
@@ -31,18 +24,5 @@
     "url": "https://github.com/Frankeo/set-app/issues"
   },
   "homepage": "https://github.com/Frankeo/set-app#readme",
-  "dependencies": {
-    "zx": "7.1.1"
-  },
-  "devDependencies": {
-    "@types/node": "18.11.18",
-    "@typescript-eslint/eslint-plugin": "5.50.0",
-    "@typescript-eslint/parser": "5.50.0",
-    "eslint": "8.33.0",
-    "eslint-config-prettier": "8.6.0",
-    "prettier": "2.8.3",
-    "ts-node": "10.9.1",
-    "typescript": "4.9.5",
-    "vitest": "^0.28.4"
-  }
+  "workspaces":["packages/*", "examples/*"]
 }

@@ -15,7 +15,9 @@
     "build": "yarn bundle && yarn copy:examples && yarn copy:config && yarn copy:env",
     "start": "NODE_ENV=development ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
+    "check-format": "prettier --check \"src/**/*.{ts}\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
+    "typecheck": "tsc --noEmit",
     "test": "vitest"
   },
   "keywords": [

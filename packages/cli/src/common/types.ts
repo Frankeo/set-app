@@ -52,15 +52,4 @@ export interface ESLintRC {
   };
 }
 
-export interface ViteConfig {
-  plugins: { (): void }[];
-  root: string;
-  test: {
-    environment: string;
-    coverage: {
-      reporter: string[];
-      all: boolean;
-    };
-    setupFiles: string[];
-  };
-}
+export type Examples = "REACT" | "REACT-BASIC" | "REACT-REDUX";

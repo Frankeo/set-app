@@ -8,8 +8,12 @@
     "cli": "dist/index.js"
   },
   "scripts": {
-    "build": "rm -rf dist && tsc",
-    "start": "ts-node ./src/index.ts",
+    "copy:examples": "cpy ../../examples/react/src dist/examples/react",
+    "copy:config": "cpy ../../examples/react/vite.config.ts dist/examples/react/",
+    "copy:env": "cpy .env.production dist --rename=.env",
+    "bundle": "rimraf dist && tsc",
+    "build": "yarn bundle && yarn copy:examples && yarn copy:config && yarn copy:env",
+    "start": "NODE_ENV=development ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
     "test": "vitest"
@@ -26,15 +30,18 @@
   "author": "Francisco Moreno",
   "license": "MIT",
   "dependencies": {
+    "dotenv": "^16.0.3",
     "zx": "7.1.1"
   },
   "devDependencies": {
     "@types/node": "18.11.18",
     "@typescript-eslint/eslint-plugin": "5.50.0",
     "@typescript-eslint/parser": "5.50.0",
+    "cpy-cli": "^4.2.0",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "prettier": "2.8.3",
+    "rimraf": "^4.1.2",
     "ts-node": "10.9.1",
     "typescript": "4.9.5",
     "vitest": "0.28.4"

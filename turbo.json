@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turbo.build/schema.json",
+  "pipeline": {
+    "e2e": {
+      "dependsOn": ["deploy"]
+    },
+    "deploy": {
+      "dependsOn": ["build"]
+    },
+    "build": {
+      "dependsOn": ["test", "lint", "check-format", "typecheck"],
+      "outputs": ["dist/**", "build/**"]
+    },
+    "test": {
+      "inputs": ["src/**/*test.tsx", "src/**/*test.ts"]
+    },
+    "lint": {
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", ".eslintrc.json"]
+    },
+    "check-format": {
+      "inputs": [
+        "src/**/*.tsx",
+        "src/**/*.ts",
+        ".prettierrc",
+        ".prettierignore"
+      ]
+    },
+    "typecheck": {
+      "inputs": ["src/**/*.tsx", "src/**/*.ts", "tsconfig.json"]
+    }
+  }
+}

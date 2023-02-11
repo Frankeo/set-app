@@ -7,6 +7,7 @@
     "url": "git+https://github.com/Frankeo/set-app.git"
   },
   "scripts": {
+    "build:pages": "yarn workspace @set-app/docs build",
     "postinstall": "husky install",
     "check-format": "prettier --check ."
   },

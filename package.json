@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Frankeo/set-app.git"
   },
   "scripts": {
-    "cli": "yarn workspace @set-app/cli start"
+    "postinstall": "husky install"
   },
   "keywords": [
     "CRA",
@@ -24,5 +24,18 @@
     "url": "https://github.com/Frankeo/set-app/issues"
   },
   "homepage": "https://github.com/Frankeo/set-app#readme",
-  "workspaces":["packages/*", "examples/*"]
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
+  "devDependencies": {
+    "commitizen": "4.3.0",
+    "cz-conventional-changelog": "3.3.0",
+    "husky": "8.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }

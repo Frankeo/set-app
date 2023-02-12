@@ -6,9 +6,7 @@ on:
       - opened
       - synchronize
     branches:
-      - 'examples/**'
-      - 'packages/**'
-      - 'mantainance/**'
+      - main
 
 jobs:
   ci-tasks:

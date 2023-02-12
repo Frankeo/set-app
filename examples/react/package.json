@@ -1,6 +1,6 @@
 {
   "name": "@set-app/react",
-  "version": "8.0.0",
+  "version": "1.0.1",
   "description": "Complete Intro to React v8 project",
   "main": "index.js",
   "scripts": {

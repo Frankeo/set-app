@@ -1,5 +1,13 @@
 # Changelog
 
+### [1.0.3](https://www.github.com/Frankeo/set-app/compare/react-v1.0.2...react-v1.0.3) (2023-02-12)
+
+
+### Miscellaneous Chores
+
+* **examples/react:** testing ci for examples/react ([462a9d3](https://www.github.com/Frankeo/set-app/commit/462a9d32a7bbcc2f265f2ac3d71019827fcff506))
+* **examples/react:** testing ci pipeline ([c069aaa](https://www.github.com/Frankeo/set-app/commit/c069aaae295587f11f7f8a2b43b255809238198b))
+
 ### [1.0.2](https://www.github.com/Frankeo/set-app/compare/react-v1.0.1...react-v1.0.2) (2023-02-12)
 
 

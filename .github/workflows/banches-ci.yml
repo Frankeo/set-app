@@ -1,0 +1,29 @@
+name: Branches CI
+
+on:
+  pull_request:
+    types: 
+      - opened
+      - synchronize
+    branches:
+      - main
+
+jobs:
+  ci-tasks:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: yarn
+          registry-url: 'https://registry.npmjs.org'
+          
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Run CI Tasks
+        run: yarn ci

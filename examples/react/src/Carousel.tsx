@@ -10,7 +10,7 @@ class Carousel extends Component<IProps> {
   };
 
   static defaultProps = {
-    images: ["http://pets-images.dev-apis.com/pets/none.jpg"],
+    images: ["https://pets-images.dev-apis.com/pets/none.jpg"],
   };
 
   handleIndexClick = (event: MouseEvent<HTMLElement>) => {

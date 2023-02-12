@@ -52,11 +52,13 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         
       - name: Deploy Examples React to Netlify
-        uses: jsmrcaga/action-netlify-deploy@master
+        uses: nwtgck/actions-netlify@v1.2
         if: ${{ steps.release.outputs['examples/react--release_created'] }}
         with:
+          publish-dir: './examples/react/src/dist'
+          production-branch: main
+          github-token: ${{ secrets.GTIHUB_SET_APP }}
+          deploy-message: "Deploy from GitHub Actions"
+        env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
-          NETLIFY_DEPLOY_TO_PROD: true
-          build_directory: ./examples/react/src/dist

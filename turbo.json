@@ -1,12 +1,6 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
-    "e2e": {
-      "dependsOn": ["deploy"]
-    },
-    "deploy": {
-      "dependsOn": ["build"]
-    },
     "build": {
       "dependsOn": ["test", "lint", "check-format", "typecheck"],
       "outputs": ["dist/**", "build/**"]

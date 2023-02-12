@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Frankeo/set-app.git"
   },
   "scripts": {
-    "cd": "turbo deploy e2e",
+    "publish:cli": "yarn workspace @set-app/cli publish --tag beta",
     "ci": "turbo test lint check-format typecheck build",
     "pre-commit": "turbo test lint check-format typecheck",
     "postinstall": "husky install",

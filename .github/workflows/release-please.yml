@@ -1,0 +1,64 @@
+name: Deploy with Release Please
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup Release Please
+        uses: GoogleCloudPlatform/release-please-action@v2
+        id: release
+        with:
+          token: ${{secrets.GITHUB_TOKEN}}
+          command: manifest
+          monorepo-tags: true
+          default-branch: main
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          node-version: 18
+          cache: yarn
+          registry-url: 'https://registry.npmjs.org'
+          
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Build Packages
+        run: yarn ci
+        if: ${{ steps.release.outputs.releases_created }}
+        
+      - name: Deploy Docs to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./packages/docs/build
+          user_name: github-actions[bot]
+          user_email: 41898282+github-actions[bot]@users.noreply.github.com
+
+      - name: Deploy CLI
+        run: yarn publish:cli
+        if: ${{ steps.release.outputs.releases_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        
+      - name: Deploy Examples React to Netlify
+        uses: jsmrcaga/action-netlify-deploy@master
+        if: ${{ steps.release.outputs.releases_created }}
+        with:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_DEPLOY_MESSAGE: "Prod deploy v${{ github.ref }}"
+          NETLIFY_DEPLOY_TO_PROD: true
+          build_directory: ./examples/react/src/dist

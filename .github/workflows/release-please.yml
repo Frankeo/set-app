@@ -38,7 +38,7 @@ jobs:
         
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
-        if: ${{ steps.release.outputs['examples/react--release_created'] }}
+        if: ${{ steps.release.outputs['packages/docs--release_created'] }}
         with:
           github_token: ${{ secrets.GTIHUB_SET_APP }}
           publish_dir: ./packages/docs/build
@@ -53,7 +53,7 @@ jobs:
         
       - name: Deploy Examples React to Netlify
         uses: jsmrcaga/action-netlify-deploy@master
-        if: ${{ steps.release.outputs['packages/docs--release_created'] }}
+        if: ${{ steps.release.outputs['examples/react--release_created'] }}
         with:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}

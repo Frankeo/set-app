@@ -1,5 +1,6 @@
 {
   "bootstrap-sha": "c61288c310459477127e826256b112431e3f01f0",
+  "release-type": "node",
   "packages": {
     "packages/cli": {},
     "packages/docs": {},

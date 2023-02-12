@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.2](https://www.github.com/Frankeo/set-app/compare/react-v1.0.1...react-v1.0.2) (2023-02-12)
+
+
+### Miscellaneous Chores
+
+* **examples/react:** testing ci release ([74f084e](https://www.github.com/Frankeo/set-app/commit/74f084e904495650db51e5d408983ec81b4a472e))
+
 ### [1.0.1](https://www.github.com/Frankeo/set-app/compare/react-v1.0.0...react-v1.0.1) (2023-02-12)
 
 

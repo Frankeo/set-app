@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.4](https://www.github.com/Frankeo/set-app/compare/react-v1.0.3...react-v1.0.4) (2023-02-12)
+
+
+### Miscellaneous Chores
+
+* **examples/react:** testing ci workflow for reac example ([63f9f68](https://www.github.com/Frankeo/set-app/commit/63f9f682f60dcae24276d98b7d1ae66071c8262c))
+
 ### [1.0.3](https://www.github.com/Frankeo/set-app/compare/react-v1.0.2...react-v1.0.3) (2023-02-12)
 
 

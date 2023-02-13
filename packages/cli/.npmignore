@@ -7,7 +7,5 @@ coverage/
 src/
 .eslintrc.json
 .prettierrc
-CHANGELOG.md
-LICENSE
 yarn-error.log
 tsconfig.json

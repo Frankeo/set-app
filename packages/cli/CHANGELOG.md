@@ -1,5 +1,12 @@
 # Changelog
 
+### [1.0.1](https://www.github.com/Frankeo/set-app/compare/cli-v1.0.0...cli-v1.0.1) (2023-02-13)
+
+
+### Bug Fixes
+
+* **packages/cli:** fix issue on src folder empty on package cli ([c1119c5](https://www.github.com/Frankeo/set-app/commit/c1119c555e30660e5653adcdb4764634288376bc))
+
 ## [1.0.0](https://www.github.com/Frankeo/set-app/compare/cli-v0.0.2...cli-v1.0.0) (2023-02-13)
 
 

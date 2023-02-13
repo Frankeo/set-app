@@ -1,10 +1,10 @@
-import { $, fs } from "zx";
+import { fs } from "zx";
+import { devDependencies } from "./common/differ-execution.js";
 import { tsConfigBasic } from "./common/json-contents.js";
 import { getProjectPath } from "./common/paths.js";
 import { updatePackageJson } from "./common/update-package-json-script.js";
 
-const installTypescript = async (projectName: string) =>
-  $`cd ${getProjectPath(projectName)} ; yarn add -D typescript@4.8.4`;
+const installTypescript = () => devDependencies.push("typescript@4.8.4");
 
 const createTsConfig = (projectName: string) => {
   const tsConfigFile = `${getProjectPath(projectName)}/tsconfig.json`;
@@ -12,8 +12,8 @@ const createTsConfig = (projectName: string) => {
   fs.writeJSONSync(tsConfigFile, tsConfigBasic);
 };
 
-export const setupTypescript = async (projectName: string) => {
-  await installTypescript(projectName);
+export const setupTypescript = (projectName: string) => {
+  installTypescript();
   createTsConfig(projectName);
   updatePackageJson(projectName, {
     typecheck: "tsc --noEmit",

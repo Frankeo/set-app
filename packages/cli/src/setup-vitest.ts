@@ -1,14 +1,13 @@
-import { $ } from "zx";
-import { getProjectPath } from "./common/paths.js";
+import { devDependencies } from "./common/differ-execution.js";
 import { updatePackageJson } from "./common/update-package-json-script.js";
 
-const installVitest = async (projectName: string) =>
-  $`cd ${getProjectPath(
-    projectName
-  )} ; yarn add -D vitest@0.24.3 @vitest/coverage-c8@0.28.4 ;`;
+const installVitest = () => {
+  devDependencies.push("vitest@0.24.3");
+  // devDependencies.push("@vitest/coverage-c8@0.28.4");
+};
 
-export const setupVitest = async (projectName: string) => {
-  await installVitest(projectName);
+export const setupVitest = (projectName: string) => {
+  installVitest();
   updatePackageJson(projectName, {
     test: "vitest --run",
     "test:watch": "vitest",

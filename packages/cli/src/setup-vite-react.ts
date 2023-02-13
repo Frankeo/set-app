@@ -1,4 +1,5 @@
-import { $, fs } from "zx";
+import { fs } from "zx";
+import { devDependencies } from "./common/differ-execution.js";
 import {
   getExample,
   getExampleSrc,
@@ -7,35 +8,36 @@ import {
 } from "./common/paths.js";
 import { updatePackageJson } from "./common/update-package-json-script.js";
 
-const installVite = async (projectName: string) =>
-  $`cd ${getProjectPath(
-    projectName
-  )} ; yarn add -D vite@3.1.4 @vitejs/plugin-react@2.1.0 ;`;
+const installVite = () => {
+  devDependencies.push("vite@3.1.4");
+  devDependencies.push("@vitejs/plugin-react@2.1.0");
+};
 
-const installVitest = (projectName: string) =>
-  $`cd ${getProjectPath(
-    projectName
-  )} ; yarn add -D @testing-library/react@13.4.0 happy-dom@7.6.0 vitest-fetch-mock@0.2.1 ;`;
+const installVitest = () => {
+  devDependencies.push("@testing-library/react@13.4.0");
+  devDependencies.push("happy-dom@7.6.0");
+  devDependencies.push("vitest-fetch-mock@0.2.1");
+};
 
-const createViteConfig = async (projectName: string) => {
+const createViteConfig = (projectName: string) => {
   const viteConfigFileSrc = `${getExample("REACT")}/vite.config.ts`;
   const viteConfigFileDest = `${getProjectPath(projectName)}/vite.config.ts`;
   fs.copyFileSync(viteConfigFileSrc, viteConfigFileDest);
 };
 
-const createSrcOutput = async (projectName: string) => {
+const createSrcOutput = (projectName: string) => {
   const exampleSrcPath = getExampleSrc("REACT");
   fs.copySync(exampleSrcPath, getSrcPath(projectName), { overwrite: true });
 };
 
-export const setupViteForReact = async (projectName: string) => {
-  await installVite(projectName);
-  await installVitest(projectName);
+export const setupViteForReact = (projectName: string) => {
+  installVite();
+  installVitest();
+  createViteConfig(projectName);
+  createSrcOutput(projectName);
   updatePackageJson(projectName, {
     dev: "vite",
     build: "vite build",
     preview: "vite preview",
   });
-  createViteConfig(projectName);
-  createSrcOutput(projectName);
 };

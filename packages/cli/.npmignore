@@ -1,0 +1,13 @@
+node_modules/
+.turbo/
+.env.*
+.DS_Store
+coverage/
+.vscode/
+src/
+.eslintrc.json
+.prettierrc
+CHANGELOG.md
+LICENSE
+yarn-error.log
+tsconfig.json

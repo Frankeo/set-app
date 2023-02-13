@@ -34,5 +34,5 @@ export const getExample = (exampleName: Examples) => {
 
 export const getExampleSrc = (exampleName: Examples): string => {
   const exampleSrc = getExample(exampleName);
-  return join(exampleSrc, "src");
+  return join(exampleSrc, "examples-src");
 };

@@ -13,11 +13,12 @@
     "setapp": "dist/index.js"
   },
   "scripts": {
-    "copy:examples": "cpy ../../examples/react/src dist/examples/react",
+    "copy:tests": "cpy ../../examples/react/src/__tests__/ dist/examples/react/examples-src",
+    "copy:examples-src": "cpy ../../examples/react/src/*.{ts,tsx,html,css} dist/examples/react/examples-src --flat",
     "copy:config": "cpy ../../examples/react/vite.config.ts dist/examples/react/",
     "copy:env": "cpy .env.production dist --rename=.env",
     "bundle": "rimraf dist && tsc",
-    "build": "yarn bundle && yarn copy:examples && yarn copy:config && yarn copy:env",
+    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:env",
     "start": "NODE_ENV=development ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",

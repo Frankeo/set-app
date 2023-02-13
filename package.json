@@ -27,7 +27,6 @@
   "bugs": {
     "url": "https://github.com/Frankeo/set-app/issues"
   },
-  "homepage": "https://github.com/Frankeo/set-app#readme",
   "workspaces": [
     "packages/*",
     "examples/*"

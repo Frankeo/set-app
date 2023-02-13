@@ -13,29 +13,26 @@ import { argv, question } from "zx";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { getProdEnv } from "./common/paths.js";
+import { getProjectName } from "./api/name-parameter.js";
 
+// Don't move from this file, needs to take the reference
 export const dirName = () => dirname(fileURLToPath(import.meta.url));
 
 config({
   path: process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : getProdEnv(),
 });
 
-const parameters = argv._;
-
-const name =
-  parameters && parameters.length
-    ? parameters[0]
-    : await question("Which one is the project name?");
-
-if (!name) {
-  throw new Error("No name provided");
+try {
+  const name = await getProjectName();
+  createProjectStructure(name);
+  await createPackageJson(name);
+  await setupGit(name);
+  setupPrettier(name);
+  setupTypescript(name);
+  setupESlint(name);
+  setupVitest(name);
+  await setupReact(name);
+  console.log(`Project ${name} created!`);
+} catch (error) {
+  console.error(error);
 }
-createProjectStructure(name);
-await createPackageJson(name);
-await setupGit(name);
-await setupPrettier(name);
-await setupTypescript(name);
-await setupESlint(name);
-await setupVitest(name);
-await setupReact(name);
-console.log(`Project ${name} created!`);

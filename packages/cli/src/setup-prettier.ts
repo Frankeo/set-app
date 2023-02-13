@@ -1,17 +1,15 @@
-import { $, fs } from "zx";
-import { getProjectPath } from "./common/paths.js";
+import { fs } from "zx";
+import { devDependencies } from "./common/differ-execution.js";
 import { updatePackageJson } from "./common/update-package-json-script.js";
 
-const installPrettier = async (projectName: string) =>
-  $`cd ${getProjectPath(projectName)} ; yarn add -D prettier@2.7.1 ;`;
+const installPrettier = () => devDependencies.push("prettier@2.7.1");
 
 const createPrettierRC = (projectName: string) => {
-  fs.createFileSync(`${projectName}/.prettierrc`);
   fs.appendFileSync(`${projectName}/.prettierrc`, "{}");
 };
 
-export const setupPrettier = async (projectName: string) => {
-  await installPrettier(projectName);
+export const setupPrettier = (projectName: string) => {
+  installPrettier();
   createPrettierRC(projectName);
   updatePackageJson(projectName, {
     format: 'prettier --write "src/**/*.{ts,tsx}"',

@@ -28,7 +28,7 @@ const name =
     : await question("Which one is the project name?");
 
 if (!name) {
-  throw new Error("No name provided!");
+  throw new Error("No name provided");
 }
 createProjectStructure(name);
 await createPackageJson(name);

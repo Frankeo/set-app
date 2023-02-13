@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/Frankeo/set-app/compare/react-v1.0.4...react-v2.0.0) (2023-02-13)
+
+
+### ⚠ BREAKING CHANGES
+
+* **packages/cli:** style(set-app): remove unnecesary .pretierignore file and format vite.config.js
+
+### Performance Improvements
+
+* **packages/cli:** improvement ([893797e](https://www.github.com/Frankeo/set-app/commit/893797ef8d925334fc062a046d0dd19fadfd6d7b))
+
 ### [1.0.4](https://www.github.com/Frankeo/set-app/compare/react-v1.0.3...react-v1.0.4) (2023-02-12)
 
 

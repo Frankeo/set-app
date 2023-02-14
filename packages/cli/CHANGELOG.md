@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://www.github.com/Frankeo/set-app/compare/cli-v1.0.1...cli-v1.1.0) (2023-02-14)
+
+
+### Features
+
+* **packages/cli:** improve installation and console messages ([659ba7e](https://www.github.com/Frankeo/set-app/commit/659ba7e9c3d94dfc13b8c6eb31d922829e71e443))
+
 ### [1.0.1](https://www.github.com/Frankeo/set-app/compare/cli-v1.0.0...cli-v1.0.1) (2023-02-13)
 
 

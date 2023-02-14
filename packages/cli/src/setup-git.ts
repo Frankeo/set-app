@@ -1,5 +1,6 @@
 import { $, fs } from "zx";
 import { getProjectPath } from "./common/paths.js";
+import { getSuccessMessage } from "./interface/messages.js";
 
 const installGit = async (projectName: string) =>
   $`git init ${getProjectPath(projectName)} ;`;
@@ -22,4 +23,5 @@ const createGitIgnore = (projectName: string) => {
 export const setupGit = async (projectDirectory: string) => {
   await installGit(projectDirectory);
   createGitIgnore(projectDirectory);
+  getSuccessMessage("installed", "Git");
 };

@@ -9,11 +9,12 @@ import { setupReact } from "./setup-react.js";
 import { setupTypescript } from "./setup-typescript.js";
 import { config } from "dotenv";
 import { setupVitest } from "./setup-vitest.js";
-import { argv, question } from "zx";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { getProdEnv } from "./common/paths.js";
-import { getProjectName } from "./api/name-parameter.js";
+import { getProjectName } from "./interface/name-parameter.js";
+import { executeDependencies } from "./differ-execution.js";
+import { getSucessProjectMsg } from "./interface/messages.js";
 
 // Don't move from this file, needs to take the reference
 export const dirName = () => dirname(fileURLToPath(import.meta.url));
@@ -31,8 +32,9 @@ try {
   setupTypescript(name);
   setupESlint(name);
   setupVitest(name);
-  await setupReact(name);
-  console.log(`Project ${name} created!`);
+  setupReact(name);
+  await executeDependencies(name);
+  getSucessProjectMsg("Project", name, "created!");
 } catch (error) {
   console.error(error);
 }

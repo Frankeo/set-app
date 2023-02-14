@@ -1,10 +1,7 @@
-import {
-  dependencies,
-  devDependencies,
-  executeDependencies,
-} from "./common/differ-execution.js";
+import { dependencies, devDependencies } from "./differ-execution.js";
 import { generateESLintRc } from "./common/generate-eslintrc.js";
 import { esLintRCReact } from "./common/json-contents.js";
+import { getWarningMessage } from "./interface/messages.js";
 import { setupViteForReact } from "./setup-vite-react.js";
 
 const installReact = () => {
@@ -32,7 +29,7 @@ const installEsLintForReact = () => {
 const updateEsLintRc = (projectName: string) =>
   generateESLintRc(projectName, esLintRCReact);
 
-export const setupReact = async (projectName: string) => {
+export const setupReact = (projectName: string) => {
   installReact();
   installReactTypes();
   installEsLintForReact();
@@ -40,5 +37,5 @@ export const setupReact = async (projectName: string) => {
   installReactQuery();
   updateEsLintRc(projectName);
   setupViteForReact(projectName);
-  await executeDependencies(projectName);
+  getWarningMessage("To be install", "React");
 };

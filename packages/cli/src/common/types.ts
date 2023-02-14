@@ -1,5 +1,7 @@
 export interface PackageJSON {
   scripts: ScriptCommands;
+  dependencies: Dependencies;
+  devDependencies: Dependencies;
 }
 
 export interface ScriptCommands {
@@ -17,6 +19,10 @@ export interface ScriptCommands {
 
 interface ESLintRules {
   [K: string]: number;
+}
+
+export interface Dependencies {
+  [K: string]: string;
 }
 
 export interface ESLintRC {

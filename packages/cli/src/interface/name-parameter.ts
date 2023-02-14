@@ -1,6 +1,7 @@
-import { argv, question } from "zx";
+import { argv, question, $ } from "zx";
 
 export const getProjectName = async () => {
+  $.verbose = false;
   const parameters = argv._;
   const name =
     parameters && parameters.length

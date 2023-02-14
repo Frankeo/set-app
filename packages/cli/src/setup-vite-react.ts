@@ -1,5 +1,5 @@
 import { fs } from "zx";
-import { devDependencies } from "./common/differ-execution.js";
+import { devDependencies } from "./differ-execution.js";
 import {
   getExample,
   getExampleSrc,

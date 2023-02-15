@@ -1,20 +1,10 @@
 #!/usr/bin/env node
 
-import { createPackageJson } from "./create-package-json.js";
-import { createProjectStructure } from "./create-project-structure.js";
-import { setupESlint } from "./setup-eslint.js";
-import { setupGit } from "./setup-git.js";
-import { setupPrettier } from "./setup-prettier.js";
-import { setupReact } from "./setup-react.js";
-import { setupTypescript } from "./setup-typescript.js";
 import { config } from "dotenv";
-import { setupVitest } from "./setup-vitest.js";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { getProdEnv } from "./common/paths.js";
-import { getProjectName } from "./interface/name-parameter.js";
-import { executeDependencies } from "./differ-execution.js";
-import { getSucessProjectMsg } from "./interface/messages.js";
+import { createTool } from "./interface/program-defenitions.js";
 
 // Don't move from this file, needs to take the reference
 export const dirName = () => dirname(fileURLToPath(import.meta.url));
@@ -24,17 +14,7 @@ config({
 });
 
 try {
-  const name = await getProjectName();
-  createProjectStructure(name);
-  await createPackageJson(name);
-  await setupGit(name);
-  setupPrettier(name);
-  setupTypescript(name);
-  setupESlint(name);
-  setupVitest(name);
-  setupReact(name);
-  await executeDependencies(name);
-  getSucessProjectMsg("Project", name, "created!");
+  await createTool().parseAsync();
 } catch (error) {
   console.error(error);
 }

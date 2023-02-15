@@ -58,4 +58,4 @@ export interface ESLintRC {
   };
 }
 
-export type Examples = "REACT" | "REACT-BASIC" | "REACT-REDUX";
+export type Examples = "REACT" | "CONSOLE" | "REACT-REDUX";

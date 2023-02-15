@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.0.0](https://www.github.com/Frankeo/set-app/compare/cli-v1.1.0...cli-v2.0.0) (2023-02-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **@setapp/cli:** command interface new type option for node projects
+
+### Bug Fixes
+
+* **@set-app/cli:** fix console verbosity ([#25](https://www.github.com/Frankeo/set-app/issues/25)) ([ce00cac](https://www.github.com/Frankeo/set-app/commit/ce00caca431f08059675b77d860cbf0bf375d901))
+* **@setapp/cli:** add better UX/UI over console arguments and options ([#23](https://www.github.com/Frankeo/set-app/issues/23)) ([eec625a](https://www.github.com/Frankeo/set-app/commit/eec625ae0b3353e551c1ec7a4602908db95feb8a))
+
 ## [1.1.0](https://www.github.com/Frankeo/set-app/compare/cli-v1.0.1...cli-v1.1.0) (2023-02-14)
 
 

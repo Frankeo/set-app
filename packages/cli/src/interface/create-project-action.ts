@@ -1,3 +1,4 @@
+import { $ } from "zx";
 import { Examples } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
@@ -14,7 +15,7 @@ export const createProjectAction = async (
   name: string,
   options: { type: string }
 ) => {
-  console.log(options.type);
+  $.verbose = false;
   if (options.type === "=" || !(options.type as Examples))
     throw new Error("Not supported option!");
   createProjectStructure(name);

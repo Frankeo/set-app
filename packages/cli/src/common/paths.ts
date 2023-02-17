@@ -1,6 +1,6 @@
 import { join, dirname } from "path";
 import { dirName } from "../index.js";
-import { Examples } from "./types.js";
+import { ExampleOptions } from "./types.js";
 
 export const getProjectPath = (name: string) => join(process.cwd(), name);
 
@@ -21,8 +21,9 @@ export const getEslintRc = (name: string) =>
 
 export const getProdEnv = () => join(dirName(), ".env");
 
-export const getExample = (exampleName: Examples) => {
-  const fullExampleName = `EXAMPLE_${exampleName}`;
+export const getExample = (exampleName: ExampleOptions) => {
+  console.log("EXAMPLE", exampleName.toUpperCase());
+  const fullExampleName = `EXAMPLE_${exampleName.toUpperCase()}`;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const examplePath = process.env[fullExampleName]!;
   const exampleFullPath = process.env.NODE_ENV
@@ -32,7 +33,7 @@ export const getExample = (exampleName: Examples) => {
   return exampleFullPath;
 };
 
-export const getExampleSrc = (exampleName: Examples): string => {
+export const getExampleSrc = (exampleName: ExampleOptions): string => {
   const exampleSrc = getExample(exampleName);
   return join(exampleSrc, "examples-src");
 };

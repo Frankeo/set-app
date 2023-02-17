@@ -61,4 +61,16 @@ jobs:
           deploy-message: "Deploy from GitHub Actions"
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_REACT }}
+
+      - name: Deploy Examples React-Redux to Netlify
+        uses: nwtgck/actions-netlify@v1.2
+        if: ${{ steps.release.outputs['examples/react-redux--release_created'] }}
+        with:
+          publish-dir: './examples/react-redux/src/dist'
+          production-branch: main
+          github-token: ${{ secrets.GTIHUB_SET_APP }}
+          deploy-message: "Deploy from GitHub Actions"
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_REDUX }}

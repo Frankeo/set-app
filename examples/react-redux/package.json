@@ -4,16 +4,16 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "check-format": "prettier --check \"src/**/*.{ts,tsx}\"",
     "typecheck": "tsc --noEmit",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "coverage": "vitest run --coverage",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@testing-library/react": "13.4.0",

@@ -22,7 +22,6 @@ export const getEslintRc = (name: string) =>
 export const getProdEnv = () => join(dirName(), ".env");
 
 export const getExample = (exampleName: ExampleOptions) => {
-  console.log("EXAMPLE", exampleName.toUpperCase());
   const fullExampleName = `EXAMPLE_${exampleName.toUpperCase()}`;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const examplePath = process.env[fullExampleName]!;

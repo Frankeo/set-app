@@ -11,7 +11,7 @@ import { ExampleOptions } from "./common/types.js";
 
 const installVite = () => {
   devDependencies.push("vite@3.1.4");
-  devDependencies.push("@vitejs/plugin-react@2.1.0");
+  devDependencies.push("@vitejs/plugin-react-swc@3.0.0");
 };
 
 const installVitest = () => {

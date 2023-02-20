@@ -25,16 +25,16 @@ And just don't forget to replace _test-react_ for your project name.
 
 The basic template will generate a new **react** project with:
 
-- EsLint
-- Prettier
-- Typescript
-- Vite
-- Vitest
-- React
-- React-Query
-- React-Router
-- Happy-DOM
-- Coverage-C8
+- [EsLint](https://eslint.org)
+- [Prettier](https://prettier.io)
+- [Typescript](https://www.typescriptlang.org)
+- [Vite](https://vitejs.dev)
+- [Vitest](https://vitest.dev)
+- [React](https://reactjs.org)
+- [React-Query](https://react-query-v3.tanstack.com)
+- [React-Router](https://reactrouter.com/en/main)
+- [Happy-DOM](https://github.com/capricorn86/happy-dom)
+- [Coverage-C8](https://www.npmjs.com/package/@vitest/coverage-c8)
 
 :::info Have in mind 😉
 The command also setups a GIT project with a `.gitignore` too.
@@ -58,7 +58,7 @@ The example project generated contains a basic example of some of the functional
 - Controlled Forms
 - Lazy Loading
 
-Please, check it out [here](https://nodejs.org/en/download/)
+Please, check it out [here](https://stupendous-meerkat-980ca8.netlify.app)
 
 ## Your site commands
 
@@ -66,13 +66,13 @@ Please, check it out [here](https://nodejs.org/en/download/)
 yarn dev
 ```
 
-The `yarn dev` command serves your project through a development server, ready for you to view at [http://localhost:3000](http://localhost:3000)
+The `yarn dev` command serves your project through a development server, ready for you to view at [http://localhost:5173](http://localhost:5173)
 
 ```bash
 yarn build
 ```
 
-The `yarn build` command builds your project locally and leave you the posibility to deploy it in: [Netlify](http), [Vercel](http), etc.
+The `yarn build` command builds your project locally and leave you the posibility to deploy it in: [Netlify](https://www.netlify.com), [Vercel](https://vercel.com), etc.
 
 ```bash
 yarn format

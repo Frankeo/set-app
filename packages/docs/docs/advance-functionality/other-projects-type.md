@@ -24,5 +24,5 @@ It has the same `package.json` commands as [Basic Info](../basic-info.md)
 :::
 
 :::tip Good Tip
-It also has the [Example Project](http) with a good `Redux` implementation to get inspire on
+It also has the [Example Project](https://jocular-kringle-b9193b.netlify.app) with a good `Redux` implementation to get inspire on
 :::

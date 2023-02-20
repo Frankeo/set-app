@@ -58,4 +58,10 @@ export interface ESLintRC {
   };
 }
 
-export type Examples = "REACT" | "CONSOLE" | "REACT-REDUX";
+export enum ExampleOptions {
+  REACT = "REACT",
+  CONSOLE = "CONSOLE",
+  REDUX = "REACT-REDUX",
+}
+
+export type Examples = Record<ExampleOptions, string>;

@@ -3,6 +3,7 @@ import { generateESLintRc } from "./common/generate-eslintrc.js";
 import { esLintRCReact } from "./common/json-contents.js";
 import { getWarningMessage } from "./interface/messages.js";
 import { setupViteForReact } from "./setup-vite-react.js";
+import { ExampleOptions } from "./common/types.js";
 
 const installReact = () => {
   dependencies.push("react@18.2.0");
@@ -29,13 +30,13 @@ const installEsLintForReact = () => {
 const updateEsLintRc = (projectName: string) =>
   generateESLintRc(projectName, esLintRCReact);
 
-export const setupReact = (projectName: string) => {
+export const setupReact = (projectName: string, type: ExampleOptions) => {
   installReact();
   installReactTypes();
   installEsLintForReact();
   installReactRouter();
   installReactQuery();
   updateEsLintRc(projectName);
-  setupViteForReact(projectName);
+  setupViteForReact(projectName, type);
   getWarningMessage("To be install", "React");
 };

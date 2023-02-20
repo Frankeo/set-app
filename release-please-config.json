@@ -3,6 +3,7 @@
   "packages": {
     "packages/cli": {},
     "packages/docs": {},
-    "examples/react": {}
+    "examples/react": {},
+    "examples/react-redux": {}
   }
 }

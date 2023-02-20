@@ -1,6 +1,6 @@
 {
-  "name": "@set-app/react",
-  "version": "2.0.0",
+  "name": "@set-app/react-redux",
+  "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
@@ -9,11 +9,11 @@
     "preview": "vite preview",
     "format": "prettier --write \"src/**/*.{ts,tsx}\"",
     "check-format": "prettier --check \"src/**/*.{ts,tsx}\"",
-    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
     "typecheck": "tsc --noEmit",
+    "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
     "test": "vitest --run",
     "test:watch": "vitest",
-    "test:coverage": "vitest run --coverage"
+    "coverage": "vitest run --coverage"
   },
   "devDependencies": {
     "@testing-library/react": "13.4.0",
@@ -38,9 +38,11 @@
     "vitest-fetch-mock": "0.2.1"
   },
   "dependencies": {
+    "@reduxjs/toolkit": "1.8.6",
     "@tanstack/react-query": "4.10.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-redux": "8.0.4",
     "react-router-dom": "6.4.1"
   }
 }

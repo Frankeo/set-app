@@ -9,7 +9,7 @@ const title = "SetApp";
 const config = {
   title,
   tagline: "React, CLIs and more...",
-  favicon: "img/tbdicon.jpeg",
+  favicon: "img/favicon.ico",
 
   // Set the production url of your site here
   url: "https://frankeo.github.io",
@@ -54,12 +54,12 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "img/tbd.jpeg",
+      image: "img/setapp.png",
       navbar: {
-        title: "Set App",
+        title: "SetApp",
         logo: {
           alt: "Set App Logo",
-          src: "img/tbd.jpeg",
+          src: "img/setapp.png",
         },
         items: [
           {
@@ -92,11 +92,11 @@ const config = {
             items: [
               {
                 label: "Stack Overflow",
-                href: "https://stackoverflow.com/questions/tagged/docusaurus",
+                href: "https://stackoverflow.com/questions/tagged/setapp",
               },
               {
                 label: "Discord",
-                href: "https://discordapp.com/invite/docusaurus",
+                href: "https://discord.gg/tf9fuWSa",
               },
             ],
           },

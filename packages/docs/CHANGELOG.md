@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.1](https://www.github.com/Frankeo/set-app/compare/docs-v0.1.0...docs-v2.1.1) (2023-02-21)
+
+
+### Miscellaneous Chores
+
+* Relase stable cli ([27fe985](https://www.github.com/Frankeo/set-app/commit/27fe9859b24dbd50f40a23782e51511973f16ecf))
+
 ## [0.1.0](https://www.github.com/Frankeo/set-app/compare/docs-v0.0.2...docs-v0.1.0) (2023-02-20)
 
 

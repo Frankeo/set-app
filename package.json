@@ -7,7 +7,7 @@
     "url": "git+https://github.com/Frankeo/set-app.git"
   },
   "scripts": {
-    "publish:cli": "yarn workspace @set-app/cli publish --tag beta --access public",
+    "publish:cli": "yarn workspace @set-app/cli publish --access public",
     "ci": "turbo test lint check-format typecheck build",
     "pre-commit": "turbo test lint check-format typecheck",
     "postinstall": "husky install",

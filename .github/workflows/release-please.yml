@@ -36,6 +36,7 @@ jobs:
         uses: tj-actions/coverage-badge-js@v1.3
         with:
           report_path: ./packages/cli/src/coverage/coverage-summary.json
+          output_path: ./badge.svg
         
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

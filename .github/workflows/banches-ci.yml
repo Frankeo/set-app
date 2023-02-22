@@ -39,3 +39,4 @@ jobs:
         uses: tj-actions/coverage-badge-js@v1.3
         with:
           report_path: ./packages/cli/src/coverage/coverage-summary.json
+          output_path: ./badge.svg

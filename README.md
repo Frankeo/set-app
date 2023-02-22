@@ -2,4 +2,4 @@
 
 Contains everything related to set-app
 
-![coverage badge](.coverage/badge.svg)
+![coverage badge](./badge.svg)

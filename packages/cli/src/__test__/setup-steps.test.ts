@@ -32,16 +32,16 @@ vi.mock("../common/generate-eslintrc.js");
 
 describe.only("Test Setup", () => {
   it.each([
-    [setupPrettier, "Prettier"],
-    [setupTypescript, "Typescript"],
-    [setupVitest, "Vitest"],
-    [setupESLint, "ESLint"],
-    [setupReact, "React"],
+    ["Prettier", setupPrettier],
+    ["Typescript", setupTypescript],
+    ["Vitest", setupVitest],
+    ["ESLint", setupESLint],
+    ["React", setupReact],
   ])(
-    "should generate a warning message",
+    "should generate a warning message for %s",
     (
-      fn: (projectName: string, type: ExampleOptions) => void,
-      result: string
+      result: string,
+      fn: (projectName: string, type: ExampleOptions) => void
     ) => {
       const projectName = "test";
       const spyMessage = vi.spyOn(message, "getWarningMessage");

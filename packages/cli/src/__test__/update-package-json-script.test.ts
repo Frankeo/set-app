@@ -27,7 +27,7 @@ describe("update package.json dependencies and devDependencies", () => {
   });
 
   it.each(["example", "@example-@example", "@example-example"])(
-    "should work with names",
+    "should work with name %s",
     (dependency: string) => {
       const number = "12.2.1";
       dependencies.push(`${dependency}@${number}`);

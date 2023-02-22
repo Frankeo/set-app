@@ -27,7 +27,7 @@
     "check-format": "prettier --check \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
     "typecheck": "tsc --noEmit",
-    "test": "vitest --run",
+    "test": "vitest --run --reporter=verbose",
     "test:coverage": "vitest run --coverage"
   },
   "keywords": [

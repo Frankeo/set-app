@@ -12,7 +12,7 @@ const installVitest = () => {
 export const setupVitest = (projectName: string) => {
   installVitest();
   updatePackageJsonScripts(projectName, {
-    test: "vitest --run",
+    test: "vitest --run --reporter=verbose",
     "test:watch": "vitest",
     coverage: "vitest run --coverage",
   });

@@ -1,9 +1,7 @@
 import { describe, vi, expect, test } from "vitest";
-import { ExampleOptions } from "../common/types.js";
 import * as message from "../interface/messages.js";
 import { setupESlint as setupESLint } from "../setup-eslint.js";
 import { setupPrettier } from "../setup-prettier.js";
-import { setupReact } from "../setup-react.js";
 import { setupTypescript } from "../setup-typescript.js";
 import { setupVitest } from "../setup-vitest.js";
 
@@ -36,17 +34,14 @@ describe.only("Test Setup", () => {
     ["Typescript", setupTypescript],
     ["Vitest", setupVitest],
     ["ESLint", setupESLint],
-    ["React", setupReact],
   ])(
     "should generate a warning message for %s",
-    (
-      result: string,
-      fn: (projectName: string, type: ExampleOptions) => void
-    ) => {
+    (result: string, fn: (projectName: string) => void) => {
       const projectName = "test";
       const spyMessage = vi.spyOn(message, "getWarningMessage");
-      fn(projectName, ExampleOptions.REACT);
+      fn(projectName);
       expect(spyMessage).toHaveBeenCalledOnce();
+      expect(spyMessage).toHaveBeenCalledWith("To be install", result);
     }
   );
 });

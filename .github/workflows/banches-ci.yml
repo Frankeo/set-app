@@ -35,10 +35,7 @@ jobs:
           json-final-path: ./packages/cli/src/coverage/coverage-final.json
           vite-config-path: ./packages/cli/vite.config.ts
 
-      - name: Copy summary on main Dir #Hack for coverage-badge
-        run: |
-          mkdir coverage/
-          cp packages/cli/src/coverage/coverage-summary.json coverage/coverage-summary.json
-
-      - name: Update Coverage Badge
-        uses: we-cli/coverage-badge-action@main
+      - name: Generate coverage badge
+        uses: tj-actions/coverage-badge-js@v1.3
+        with:
+          report_path: ./packages/cli/src/coverage/coverage-summary.json

@@ -35,3 +35,8 @@ jobs:
           json-final-path: ./packages/cli/src/coverage/coverage-final.json
           vite-config-path: ./packages/cli/vite.config.ts
 
+      - run: |
+          cd packages/cli/src/
+
+      - name: Update Coverage Badge
+        uses: we-cli/coverage-badge-action@main

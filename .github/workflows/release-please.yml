@@ -45,9 +45,6 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
 
-      - name: Update Coverage Badge
-        uses: we-cli/coverage-badge-action@main
-
       - name: Deploy CLI
         run: yarn publish:cli
         if: ${{ steps.release.outputs['packages/cli--release_created'] }}
@@ -77,3 +74,9 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_REDUX }}
+
+      - run: |
+          cd packages/cli/src/
+
+      - name: Update Coverage Badge
+        uses: we-cli/coverage-badge-action@main

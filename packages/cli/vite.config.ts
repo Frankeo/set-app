@@ -4,7 +4,7 @@ export default defineConfig({
   root: "src",
   test: {
     coverage: {
-      reporter: ["html"],
+      reporter: ["cobertura"],
       all: true,
     },
   },

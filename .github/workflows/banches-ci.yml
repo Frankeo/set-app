@@ -31,6 +31,5 @@ jobs:
       - name: Codecov Upload
         uses: codecov/codecov-action@v3
         with:
-          directory: ./packages/cli/src/coverage/
-          files: ./cobertura-coverage.xml
+          files: ./packages/cli/src/coverage/cobertura-coverage.xml
           fail_ci_if_error: true # optional (default = false)

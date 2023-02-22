@@ -1,5 +1,7 @@
-import { devDependencies } from "./differ-execution.js";
-import { updatePackageJson } from "./common/update-package-json-script.js";
+import {
+  devDependencies,
+  updatePackageJsonScripts,
+} from "./common/update-package-json-script.js";
 import { getWarningMessage } from "./interface/messages.js";
 
 const installVitest = () => {
@@ -9,7 +11,7 @@ const installVitest = () => {
 
 export const setupVitest = (projectName: string) => {
   installVitest();
-  updatePackageJson(projectName, {
+  updatePackageJsonScripts(projectName, {
     test: "vitest --run",
     "test:watch": "vitest",
     coverage: "vitest run --coverage",

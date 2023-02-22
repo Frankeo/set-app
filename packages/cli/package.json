@@ -26,7 +26,9 @@
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run",
+    "test:coverage": "vitest run --coverage"
   },
   "keywords": [
     "CRA",
@@ -49,6 +51,7 @@
     "@types/node": "18.11.18",
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
+    "@vitest/coverage-c8": "0.28.4",
     "cpy-cli": "4.2.0",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
@@ -57,6 +60,6 @@
     "rimraf": "4.1.2",
     "ts-node": "10.8.0",
     "typescript": "4.8.4",
-    "vitest": "0.28.4"
+    "vitest": "0.27.2"
   }
 }

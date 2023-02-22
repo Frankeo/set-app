@@ -63,5 +63,3 @@ export enum ExampleOptions {
   CONSOLE = "CONSOLE",
   REDUX = "REACT-REDUX",
 }
-
-export type Examples = Record<ExampleOptions, string>;

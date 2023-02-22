@@ -11,7 +11,7 @@
     "check-format": "prettier --check \"src/**/*.{ts,tsx}\"",
     "lint": "eslint \"src/**/*.{ts,tsx}\" --quiet",
     "typecheck": "tsc --noEmit",
-    "test": "vitest --run",
+    "test": "vitest --run --reporter=verbose",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage"
   },

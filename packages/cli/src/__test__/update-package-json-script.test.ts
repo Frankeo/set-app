@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, test, vi } from "vitest";
 import { fs } from "zx";
 import {
   dependencies,
@@ -26,7 +26,7 @@ describe("update package.json dependencies and devDependencies", () => {
     devDependencies.length = 0;
   });
 
-  it.each(["example", "@example-@example", "@example-example"])(
+  test.each(["example", "@example-@example", "@example-example"])(
     "should work with name %s",
     (dependency: string) => {
       const number = "12.2.1";
@@ -50,7 +50,7 @@ describe("update package.json dependencies and devDependencies", () => {
 });
 
 describe("update package.json scripts", () => {
-  it("should update new scripts preserving the previous ones", () => {
+  test("should update new scripts preserving the previous ones", () => {
     const file = {
       scripts: {
         typecheck: "tsc --noEmit",

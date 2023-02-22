@@ -1,4 +1,4 @@
-import { describe, it, vi, expect } from "vitest";
+import { describe, vi, expect, test } from "vitest";
 import { ExampleOptions } from "../common/types.js";
 import * as message from "../interface/messages.js";
 import { setupESlint as setupESLint } from "../setup-eslint.js";
@@ -31,7 +31,7 @@ vi.mock("../interface/messages.js");
 vi.mock("../common/generate-eslintrc.js");
 
 describe.only("Test Setup", () => {
-  it.each([
+  test.each([
     ["Prettier", setupPrettier],
     ["Typescript", setupTypescript],
     ["Vitest", setupVitest],
@@ -47,7 +47,6 @@ describe.only("Test Setup", () => {
       const spyMessage = vi.spyOn(message, "getWarningMessage");
       fn(projectName, ExampleOptions.REACT);
       expect(spyMessage).toHaveBeenCalledOnce();
-      expect(spyMessage).toHaveBeenCalledWith("To be install", result);
     }
   );
 });

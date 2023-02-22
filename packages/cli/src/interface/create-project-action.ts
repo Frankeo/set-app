@@ -2,6 +2,7 @@ import { $ } from "zx";
 import { ExampleOptions } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
+import { createReadme } from "../create-readme.js";
 import { executeDependencies } from "../differ-execution.js";
 import { setupESlint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
@@ -14,13 +15,13 @@ import { getSucessProjectMsg } from "./messages.js";
 
 export const createProjectAction = async (
   name: string,
-  { type }: { type: string }
+  { type, desc }: { type: string; desc: string }
 ) => {
   $.verbose = false;
   const exampleType = type as ExampleOptions;
-  if (type === "=" || !exampleType) throw new Error("Not supported option!");
+  if (!exampleType) throw new Error("Not supported option!");
   createProjectStructure(name);
-  await createPackageJson(name);
+  await createPackageJson(name, desc);
   await setupGit(name);
   setupPrettier(name);
   setupTypescript(name);
@@ -29,5 +30,6 @@ export const createProjectAction = async (
   setupReact(name, exampleType);
   setupRedux(exampleType);
   await executeDependencies(name);
+  await createReadme(name);
   getSucessProjectMsg("Project", name, "created!");
 };

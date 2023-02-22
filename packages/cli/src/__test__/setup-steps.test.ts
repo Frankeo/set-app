@@ -30,15 +30,15 @@ vi.mock("../common/paths", () => ({
 vi.mock("../interface/messages.js");
 vi.mock("../common/generate-eslintrc.js");
 
-describe.only("Test Setup", () => {
-  test("should generate a warning message for Vitest", () => {
-    const projectName = "test";
-    const spyMessage = vi.spyOn(message, "getWarningMessage");
-    setupVitest(projectName);
-    expect(spyMessage).toHaveBeenCalledOnce();
-    expect(spyMessage).toHaveBeenCalledWith("To be install", "Vitest");
-  });
+test("Test Setupd should generate a warning message for Vitest", () => {
+  const projectName = "test";
+  const spyMessage = vi.spyOn(message, "getWarningMessage");
+  setupVitest(projectName);
+  expect(spyMessage).toHaveBeenCalledOnce();
+  expect(spyMessage).toHaveBeenCalledWith("To be install", "Vitest");
+});
 
+describe.only("Test Setup", () => {
   test.each([
     ["Prettier", setupPrettier],
     ["Typescript", setupTypescript],

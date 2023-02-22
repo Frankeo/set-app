@@ -4,8 +4,12 @@ export default defineConfig({
   root: "src",
   test: {
     coverage: {
-      reporter: ["cobertura"],
+      reporter: ["json-summary", "json"],
       all: true,
+      lines: 60,
+      branches: 60,
+      functions: 60,
+      statements: 60,
     },
   },
 });

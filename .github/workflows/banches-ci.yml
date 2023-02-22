@@ -28,8 +28,10 @@ jobs:
       - name: Run CI Tasks
         run: yarn ci
 
-      - name: Codecov Upload
-        uses: codecov/codecov-action@v3
+      - name: Vitest Coverage Report
+        uses: davelosert/vitest-coverage-report-action@v1.3.2
         with:
-          files: ./packages/cli/src/coverage/cobertura-coverage.xml
-          fail_ci_if_error: true # optional (default = false)
+          json-summary-path: ./packages/cli/src/coverage/coverage-summary.json
+          json-final-path: ./packages/cli/src/coverage/coverage-final.json
+          vite-config-path: ./packages/cli/vite.config.ts
+

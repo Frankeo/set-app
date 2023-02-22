@@ -18,11 +18,9 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v3
-        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
-        if: ${{ steps.release.outputs.releases_created }}
         with:
           node-version: 18
           cache: yarn
@@ -30,11 +28,17 @@ jobs:
           
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Build Packages
         run: yarn release
-        if: ${{ steps.release.outputs.releases_created }}
+
+      - name: Copy summary on main Dir #Hack for coverage-badge
+        run: |
+          mkdir coverage/
+          cp packages/cli/src/coverage/coverage-summary.json coverage/coverage-summary.json
+
+      - name: Update Coverage Badge
+        uses: we-cli/coverage-badge-action@main
         
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
@@ -74,9 +78,3 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID_REDUX }}
-
-      - run: |
-          cd packages/cli/src/
-
-      - name: Update Coverage Badge
-        uses: we-cli/coverage-badge-action@main

@@ -8,7 +8,7 @@
   },
   "scripts": {
     "publish:cli": "yarn workspace @set-app/cli publish --access public",
-    "ci": "turbo test lint check-format typecheck build",
+    "ci": "turbo test:coverage lint check-format typecheck build",
     "pre-commit": "turbo test lint check-format typecheck",
     "postinstall": "husky install",
     "check-format": "prettier --check ."

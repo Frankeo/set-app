@@ -8,7 +8,7 @@
   },
   "scripts": {
     "publish:cli": "yarn workspace @set-app/cli publish --access public",
-    "release": "turbo build",
+    "release": "turbo test-coverage build",
     "pre-commit": "turbo test lint check-format typecheck",
     "ci": "turbo test test-coverage lint check-format typecheck",
     "postinstall": "husky install",

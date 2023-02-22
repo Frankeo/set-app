@@ -45,6 +45,9 @@ jobs:
           user_name: github-actions[bot]
           user_email: 41898282+github-actions[bot]@users.noreply.github.com
 
+      - name: Update Coverage Badge
+        uses: we-cli/coverage-badge-action@main
+
       - name: Deploy CLI
         run: yarn publish:cli
         if: ${{ steps.release.outputs['packages/cli--release_created'] }}

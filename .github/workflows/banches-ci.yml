@@ -26,4 +26,12 @@ jobs:
         run: yarn install --frozen-lockfile
 
       - name: Run CI Tasks
-        run: yarn pre-commit
+        run: yarn ci
+
+      - name: Vitest Coverage Report
+        uses: davelosert/vitest-coverage-report-action@v1.3.2
+        with:
+          json-summary-path: ./packages/cli/src/coverage/coverage-summary.json
+          json-final-path: ./packages/cli/src/coverage/coverage-final.json
+          vite-config-path: ./packages/cli/vite.config.ts
+

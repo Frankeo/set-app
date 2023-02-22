@@ -3,9 +3,6 @@ import { getProjectPath } from "./common/paths.js";
 import { updatePackageJsonDependencies } from "./common/update-package-json-script.js";
 import { generateLoader, getSuccessMessage } from "./interface/messages.js";
 
-export const devDependencies: string[] = [];
-export const dependencies: string[] = [];
-
 export const executeDependencies = async (projectName: string) => {
   const projectPath = getProjectPath(projectName);
   updatePackageJsonDependencies(projectName);

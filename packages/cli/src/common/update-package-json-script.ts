@@ -1,9 +1,8 @@
 import { fs } from "zx";
-import { dependencies, devDependencies } from "../differ-execution.js";
 import { getPackageJson } from "./paths.js";
 import { Dependencies, PackageJSON, ScriptCommands } from "./types.js";
 
-export const updatePackageJson = (
+export const updatePackageJsonScripts = (
   projectName: string,
   commands: ScriptCommands
 ) => {
@@ -23,6 +22,9 @@ const convertIntoDependency = (dependencies: string[]) =>
     obj[key] = value;
     return obj;
   }, {} as Dependencies);
+
+export const devDependencies: string[] = [];
+export const dependencies: string[] = [];
 
 export const updatePackageJsonDependencies = (projectName: string) => {
   const packageJsonFile = getPackageJson(projectName);

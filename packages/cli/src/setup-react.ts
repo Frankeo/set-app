@@ -1,9 +1,12 @@
-import { dependencies, devDependencies } from "./differ-execution.js";
 import { generateESLintRc } from "./common/generate-eslintrc.js";
 import { esLintRCReact } from "./common/json-contents.js";
 import { getWarningMessage } from "./interface/messages.js";
 import { setupViteForReact } from "./setup-vite-react.js";
 import { ExampleOptions } from "./common/types.js";
+import {
+  dependencies,
+  devDependencies,
+} from "./common/update-package-json-script.js";
 
 const installReact = () => {
   dependencies.push("react@18.2.0");

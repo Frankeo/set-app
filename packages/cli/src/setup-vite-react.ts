@@ -1,12 +1,14 @@
 import { fs } from "zx";
-import { devDependencies } from "./differ-execution.js";
 import {
   getExample,
   getExampleSrc,
   getProjectPath,
   getSrcPath,
 } from "./common/paths.js";
-import { updatePackageJson } from "./common/update-package-json-script.js";
+import {
+  devDependencies,
+  updatePackageJsonScripts,
+} from "./common/update-package-json-script.js";
 import { ExampleOptions } from "./common/types.js";
 
 const installVite = () => {
@@ -39,7 +41,7 @@ export const setupViteForReact = (
   installVitest();
   createViteConfig(projectName, type);
   createSrcOutput(projectName, type);
-  updatePackageJson(projectName, {
+  updatePackageJsonScripts(projectName, {
     dev: "vite",
     build: "vite build",
     preview: "vite preview",

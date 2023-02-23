@@ -18,11 +18,9 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v3
-        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
-        if: ${{ steps.release.outputs.releases_created }}
         with:
           node-version: 18
           cache: yarn
@@ -30,11 +28,9 @@ jobs:
           
       - name: Install dependencies
         run: yarn install --frozen-lockfile
-        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Build Packages
         run: yarn release
-        if: ${{ steps.release.outputs.releases_created }}
         
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

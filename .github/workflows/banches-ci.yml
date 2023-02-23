@@ -34,9 +34,3 @@ jobs:
           json-summary-path: ./packages/cli/src/coverage/coverage-summary.json
           json-final-path: ./packages/cli/src/coverage/coverage-final.json
           vite-config-path: ./packages/cli/vite.config.ts
-
-      - name: Generate coverage badge
-        uses: tj-actions/coverage-badge-js@v1.3
-        with:
-          report_path: ./packages/cli/src/coverage/coverage-summary.json
-          output_path: ./badge.svg

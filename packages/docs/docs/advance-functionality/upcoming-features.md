@@ -1,5 +1,5 @@
 ---
-sidebar_position: 2
+sidebar_position: 3
 ---
 
 # Upcoming Features
@@ -14,7 +14,6 @@ In our head right now, we have a list of features coming out soon:
 - [Github Action Workflow](#github-action-workflow)
 - [E2E Cypress Generation](#e2e-cypress-generation)
 - [Console Project Generation](#console-project-generation)
-- [Readme Generator](#readme-generator)
 - [Firebase Project Generation](#firebase-project-generation)
 
 ## Github Project Generation
@@ -54,17 +53,6 @@ available on the **cli** with the option `-t console` or `--type console`
 
 :::tip Just a thought 🧠
 The previous features (**github project generation** and **github action workflow**) are going to be available and present for this new type of project
-:::
-
-## Readme Generator
-
-In every project there must be a **readme file** explaining about it. So we are going to test the comunity tools available, and
-chose one of them to be integrated with the **cli** and get the best **readme file** generation experience possible.
-
-By default, the readme generation will be activated when you generate any type of the available projects
-
-:::info I have to tell you something 🙄
-You could change the default behaviour by using the flag: `--no-readme`
 :::
 
 ## Firebase Project Generation

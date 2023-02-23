@@ -7,8 +7,8 @@ tags: [npm, config, Readme]
 
 ## NPM
 
-In [SetApp](http) we focus on build the tools around technologies that we already use.
-One of them is [NPM](http) who is in charge of generate our `package.json`, so in a fresh machine with the default config, it would look like:
+In [SetApp](https://www.npmjs.com/package/@set-app/cli) we focus on build the tools around technologies that we already use.
+One of them is [NPM](https://www.npmjs.com) who is in charge of generate our `package.json`, so in a fresh machine with the default config, it would look like:
 
 ![Default package.json](./package-json.png)
 

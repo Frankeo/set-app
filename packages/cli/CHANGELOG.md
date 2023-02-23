@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.1.2](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.1...cli-v2.1.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix bin command for npx usage ([5028d77](https://www.github.com/Frankeo/set-app/commit/5028d777351ed517608e574ec464cb2c854344f9))
+
 ## [2.1.1](https://www.github.com/Frankeo/set-app/compare/docs-v0.1.0...docs-v2.1.1) (2023-02-21)
 
 ### Miscellaneous Chores

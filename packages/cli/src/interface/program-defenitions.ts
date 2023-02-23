@@ -1,9 +1,10 @@
 import { program } from "commander";
 import { createProjectAction } from "./create-project-action.js";
+import { getProjectVersion } from "./get-project-version.js";
 
 export const createTool = () =>
   program
-    .name("setapp")
+    .name("set-app")
     .description("Create and setup node projects")
     .argument("<name>", "project name")
     .option(
@@ -11,4 +12,6 @@ export const createTool = () =>
       "Choose: React, React-Redux or Console",
       "React"
     )
+    .option("--desc <value>", "Add a description to your new project")
+    .version(getProjectVersion())
     .action(createProjectAction);

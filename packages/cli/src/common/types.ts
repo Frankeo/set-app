@@ -1,4 +1,5 @@
 export interface PackageJSON {
+  version: string;
   scripts: ScriptCommands;
   dependencies: Dependencies;
   devDependencies: Dependencies;

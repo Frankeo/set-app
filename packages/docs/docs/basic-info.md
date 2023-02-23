@@ -13,6 +13,8 @@ Let's discover **SetApp in less than 5 minutes**.
 - [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
   - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
 
+- [Git](https://git-scm.com/downloads) basic features are used so any version since 2015 are recommended
+
 ## Generate a new project
 
 Please, Run:
@@ -21,7 +23,7 @@ Please, Run:
 npx @set-app/cli test-react
 ```
 
-And just don't forget to replace _test-react_ for your project name.
+And just don't forget to replace `test-react` for your project name.
 
 The basic template will generate a new **react** project with:
 
@@ -37,7 +39,7 @@ The basic template will generate a new **react** project with:
 - [Coverage-C8](https://www.npmjs.com/package/@vitest/coverage-c8)
 
 :::info Have in mind 😉
-The command also setups a GIT project with a `.gitignore` too.
+The command also setups a GIT project with a `.gitignore` too. And of course, a beautiful `README.md`
 :::
 
 :::tip Full transparency

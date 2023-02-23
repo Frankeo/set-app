@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.2...cli-v2.2.0) (2023-02-23)
+
+
+### Features
+
+* **@set-app/cli:** add readme to generated projects ([1378b3b](https://www.github.com/Frankeo/set-app/commit/1378b3b79350f647600073616ef2a670ccd60f17))
+
 ### [2.1.2](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.1...cli-v2.1.2) (2023-02-23)
 
 

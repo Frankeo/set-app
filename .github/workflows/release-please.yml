@@ -18,9 +18,11 @@ jobs:
 
       - name: Checkout Repository
         uses: actions/checkout@v3
+        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Setup Node
         uses: actions/setup-node@v3
+        if: ${{ steps.release.outputs.releases_created }}
         with:
           node-version: 18
           cache: yarn
@@ -28,15 +30,11 @@ jobs:
           
       - name: Install dependencies
         run: yarn install --frozen-lockfile
+        if: ${{ steps.release.outputs.releases_created }}
 
       - name: Build Packages
         run: yarn release
-
-      - name: Generate coverage badge
-        uses: tj-actions/coverage-badge-js@v1.3
-        with:
-          report_path: ./packages/cli/src/coverage/coverage-summary.json
-          output_path: ./badge.svg
+        if: ${{ steps.release.outputs.releases_created }}
         
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3

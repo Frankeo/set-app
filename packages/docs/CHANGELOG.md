@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.2.0...docs-v2.3.0) (2023-02-23)
+
+
+### Features
+
+* **@set-app/docs:** add blogs and first blog ([#42](https://www.github.com/Frankeo/set-app/issues/42)) ([bd3627e](https://www.github.com/Frankeo/set-app/commit/bd3627eed6db240a517b61a6b57f0d7a87021e56))
+
 ## [2.2.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.1.1...docs-v2.2.0) (2023-02-23)
 
 

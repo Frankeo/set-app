@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[225],{9081:p=>{p.exports=JSON.parse('{"label":"npm","permalink":"/set-app/blog/tags/npm","allTagsPath":"/set-app/blog/tags","count":1}')}}]);

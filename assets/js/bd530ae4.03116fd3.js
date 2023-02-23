@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[541],{1648:e=>{e.exports=JSON.parse('{"label":"Readme","permalink":"/set-app/blog/tags/readme","allTagsPath":"/set-app/blog/tags","count":1}')}}]);

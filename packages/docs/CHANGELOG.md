@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.3.1](https://www.github.com/Frankeo/set-app/compare/docs-v2.3.0...docs-v2.3.1) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/docs:** fix broken links ([6b06248](https://www.github.com/Frankeo/set-app/commit/6b062487d33c8355d0efeaa81ae16755cb8d5916))
+
 ## [2.3.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.2.0...docs-v2.3.0) (2023-02-23)
 
 

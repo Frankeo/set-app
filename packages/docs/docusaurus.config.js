@@ -42,7 +42,9 @@ const config = {
         docs: {
           sidebarPath: require.resolve("./sidebars.js"),
         },
-        blog: false,
+        blog: {
+          showReadingTime: true,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
@@ -68,6 +70,7 @@ const config = {
             position: "left",
             label: "Docs",
           },
+          { to: "/blog", label: "Blog", position: "left" },
           {
             href: "https://github.com/Frankeo/set-app",
             label: "GitHub",
@@ -79,11 +82,15 @@ const config = {
         style: "dark",
         links: [
           {
-            title: "Docs",
+            title: "Info",
             items: [
               {
                 label: "Docs",
                 to: "/docs/basic-info",
+              },
+              {
+                label: "Blog",
+                to: "/blog",
               },
             ],
           },

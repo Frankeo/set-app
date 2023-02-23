@@ -17,9 +17,9 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/basic-info"
+            to="https://www.npmjs.com/package/@set-app/cli"
           >
-            Basic Info - 5min ⏱️
+            Let's check SetApp 🤘🏻
           </Link>
         </div>
       </div>

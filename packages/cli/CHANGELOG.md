@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.1](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.0...cli-v2.2.1) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix Readme with basic info for cli ([ed86a0d](https://www.github.com/Frankeo/set-app/commit/ed86a0dd5b20b1e39e52615ee9fc609960748d77))
+
 ## [2.2.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.2...cli-v2.2.0) (2023-02-23)
 
 

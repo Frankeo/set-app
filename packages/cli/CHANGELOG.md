@@ -1,5 +1,12 @@
 # Changelog
 
+### [2.2.2](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.1...cli-v2.2.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix readme generator invocation ([#40](https://www.github.com/Frankeo/set-app/issues/40)) ([06f6b41](https://www.github.com/Frankeo/set-app/commit/06f6b419d5a64e88b0a8a8cbe20653c3ff960fe0))
+
 ### [2.2.1](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.0...cli-v2.2.1) (2023-02-23)
 
 

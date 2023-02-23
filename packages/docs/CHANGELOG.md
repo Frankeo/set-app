@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.1.1...docs-v2.2.0) (2023-02-23)
+
+
+### Features
+
+* **@set-app/cli:** add readme to generated projects ([1378b3b](https://www.github.com/Frankeo/set-app/commit/1378b3b79350f647600073616ef2a670ccd60f17))
+
+
+### Performance Improvements
+
+* **@set-app:** Optimize images ([628c4e5](https://www.github.com/Frankeo/set-app/commit/628c4e5f752b32122acffef254dab25b7705aaef))
+
 ### [2.1.1](https://www.github.com/Frankeo/set-app/compare/docs-v0.1.0...docs-v2.1.1) (2023-02-21)
 
 

@@ -1,7 +1,9 @@
-import { devDependencies } from "./differ-execution.js";
 import { generateESLintRc } from "./common/generate-eslintrc.js";
 import { esLintRCBasic } from "./common/json-contents.js";
-import { updatePackageJson } from "./common/update-package-json-script.js";
+import {
+  devDependencies,
+  updatePackageJsonScripts,
+} from "./common/update-package-json-script.js";
 import { getWarningMessage } from "./interface/messages.js";
 
 const installESlint = () => {
@@ -15,7 +17,7 @@ const installESlint = () => {
 export const setupESlint = (projectName: string) => {
   installESlint();
   generateESLintRc(projectName, esLintRCBasic);
-  updatePackageJson(projectName, {
+  updatePackageJsonScripts(projectName, {
     lint: 'eslint "src/**/*.{ts,tsx}" --quiet',
   });
   getWarningMessage("To be install", "ESLint");

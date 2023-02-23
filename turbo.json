@@ -8,6 +8,9 @@
     "test": {
       "inputs": ["src/**/*test.tsx", "src/**/*test.ts"]
     },
+    "test-coverage": {
+      "inputs": ["src/**/*test.tsx", "src/**/*test.ts"]
+    },
     "lint": {
       "inputs": ["src/**/*.tsx", "src/**/*.ts", ".eslintrc.json"]
     },

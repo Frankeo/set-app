@@ -4,7 +4,7 @@ export default defineConfig({
   root: "src",
   test: {
     coverage: {
-      reporter: ["json-summary", "json"],
+      reporter: ["json-summary", "json", "text"],
       all: true,
       lines: 60,
       branches: 80,

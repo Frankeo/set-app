@@ -4,7 +4,7 @@ import { getProjectVersion } from "./get-project-version.js";
 
 export const createTool = () =>
   program
-    .name("setapp")
+    .name("set-app")
     .description("Create and setup node projects")
     .argument("<name>", "project name")
     .option(

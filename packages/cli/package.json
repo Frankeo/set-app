@@ -10,7 +10,7 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "setapp": "dist/index.js"
+    "cli": "dist/index.js"
   },
   "scripts": {
     "copy:tests": "cpy ../../examples/react/src/__tests__/ dist/examples/react/examples-src",

@@ -1,4 +1,4 @@
-<h1 align="center">Welcome to @set-app/main 👋</h1>
+<h1 align="center">Welcome to @set-app/cli 👋</h1>
 <p>
   <a href="https://github.com/Frankeo/set-app#readme" target="_blank">
     <img alt="Documentation" src="https://img.shields.io/badge/documentation-yes-brightgreen.svg" />
@@ -11,28 +11,16 @@
   </a>
 </p>
 
-> Create a react app without so much configuration going around. Configure the CI/CD also required so you can focus on coding 😉
+> Create a `React` and `Console` apps without so much configuration going around. It Creates the `Github project`, `beautiful READMEs` and `CI/CD` related staff so you can **focus on coding** 😉
 
-### 🏠 [Homepage](https://www.npmjs.com/package/@set-app/cli)
+### 🏠 [Homepage](https://frankeo.github.io/set-app/)
 
-### ✨ [Demo](https://www.npmjs.com/package/@set-app/cli)
-
-## Install
-
-```sh
-yarn install
-```
+### ✨ [Tool](https://www.npmjs.com/package/@set-app/cli)
 
 ## Usage
 
 ```sh
-yarn dev
-```
-
-## Run tests
-
-```sh
-yarn test
+npx @set-app/cli@latest
 ```
 
 ## Author

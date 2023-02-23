@@ -16,12 +16,13 @@
     "copy:tests": "cpy ../../examples/react/src/__tests__/ dist/examples/react/examples-src",
     "copy:examples-src": "cpy ../../examples/react/src/*.{ts,tsx,html,css} dist/examples/react/examples-src --flat",
     "copy:config": "cpy ../../examples/react/vite.config.ts dist/examples/react/",
+    "copy:readme": "cpy ../../README.md ./cli/README.md",
     "copy:tests-redux": "cpy ../../examples/react-redux/src/__tests__/ dist/examples/react-redux/examples-src",
     "copy:examples-src-redux": "cpy ../../examples/react-redux/src/*.{ts,tsx,html,css} dist/examples/react-redux/examples-src --flat",
     "copy:config-redux": "cpy ../../examples/react-redux/vite.config.ts dist/examples/react-redux/",
     "copy:env": "cpy .env.production dist --rename=.env",
     "bundle": "rimraf dist && tsc",
-    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env",
+    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env && yarn copy:readme",
     "start": "NODE_ENV=development ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
@@ -40,7 +41,7 @@
     "App"
   ],
   "author": "Francisco Moreno",
-  "license": "MIT",
+  "license": "ISC",
   "dependencies": {
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",

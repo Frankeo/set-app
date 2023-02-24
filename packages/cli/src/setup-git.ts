@@ -21,7 +21,9 @@ const createGitIgnore = (projectName: string) => {
 };
 
 export const setupGit = async (projectDirectory: string, github: boolean) => {
-  if (!github) await installGit(projectDirectory);
+  if (!github) {
+    await installGit(projectDirectory);
+    getSuccessMessage("installed", "Git");
+  }
   createGitIgnore(projectDirectory);
-  getSuccessMessage("installed", "Git");
 };

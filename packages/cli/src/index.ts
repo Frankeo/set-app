@@ -4,6 +4,7 @@ import { config } from "dotenv";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { getProdEnv } from "./common/paths.js";
+import { getErrorMessage } from "./interface/messages.js";
 import { createTool } from "./interface/program-defenitions.js";
 
 // Don't move from this file, needs to take the reference
@@ -16,5 +17,6 @@ config({
 try {
   await createTool().parseAsync();
 } catch (error) {
-  console.error(error);
+  const { message } = error as Error;
+  getErrorMessage(message);
 }

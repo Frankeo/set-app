@@ -13,6 +13,12 @@ export const getWarningMessage = (action: string, text: string) => {
     .underline(action)}   ${chalk.rgb(204, 0, 153).bold(text)}`;
 };
 
+export const getErrorMessage = (text: string) => {
+  echo`🔥   ${chalk.rgb(244, 74, 38).underline("Error")}   ${chalk
+    .rgb(244, 74, 38)
+    .bold(text)}`;
+};
+
 export const generateLoader = (text: string) => {
   const loader = loading({
     text,

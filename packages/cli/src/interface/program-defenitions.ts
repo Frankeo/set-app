@@ -13,5 +13,6 @@ export const createTool = () =>
       "React"
     )
     .option("--desc <value>", "Add a description to your new project")
+    .option("--no-github", "Not generate github public repository")
     .version(getProjectVersion())
     .action(createProjectAction);

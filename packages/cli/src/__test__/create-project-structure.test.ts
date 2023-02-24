@@ -17,19 +17,21 @@ vi.mock("../interface/messages.js");
 
 describe("testing project structure", () => {
   const folder = "TEST";
+  const github = false;
+  const description = "Random";
 
-  test("should throw an exception when the project already exists", () => {
+  test("should throw an exception when the project already exists", async () => {
     vi.mocked(fs.existsSync).mockReturnValueOnce(true);
-    expect(() => createProjectStructure(folder)).toThrowError(
-      createProjectErrorMessage(folder)
-    );
+    await expect(
+      createProjectStructure(folder, github, description)
+    ).rejects.toThrowError(createProjectErrorMessage(folder));
   });
 
-  test("should create folders and print message if is a new project", () => {
+  test("should create folders and print message if is a new project", async () => {
     vi.mocked(fs.existsSync).mockReturnValueOnce(false);
     const spyMkdir = vi.spyOn(fs, "mkdirSync");
     const spyMessage = vi.spyOn(message, "getSuccessMessage");
-    createProjectStructure(folder);
+    await createProjectStructure(folder, github, description);
     expect(spyMkdir).toHaveBeenCalledTimes(2);
     expect(spyMessage).toHaveBeenCalledTimes(2);
   });

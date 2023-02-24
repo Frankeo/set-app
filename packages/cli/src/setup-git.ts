@@ -20,8 +20,8 @@ const createGitIgnore = (projectName: string) => {
   fs.appendFileSync(gitIgnoreFile, ignored.join("\n"));
 };
 
-export const setupGit = async (projectDirectory: string) => {
-  await installGit(projectDirectory);
+export const setupGit = async (projectDirectory: string, github: boolean) => {
+  if (!github) await installGit(projectDirectory);
   createGitIgnore(projectDirectory);
   getSuccessMessage("installed", "Git");
 };

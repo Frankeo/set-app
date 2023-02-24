@@ -15,14 +15,14 @@ import { getSucessProjectMsg } from "./messages.js";
 
 export const createProjectAction = async (
   name: string,
-  { type, desc }: { type: string; desc: string }
+  { type, desc, github }: { type: string; desc: string; github: boolean }
 ) => {
   $.verbose = false;
   const exampleType = type as ExampleOptions;
   if (!exampleType) throw new Error("Not supported option!");
-  createProjectStructure(name);
+  await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
-  await setupGit(name);
+  await setupGit(name, github);
   setupPrettier(name);
   setupTypescript(name);
   setupESlint(name);

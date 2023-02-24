@@ -18,7 +18,7 @@ describe("Test setupGit function", () => {
   test("should generate a success message after git initialize", async () => {
     const folder = "test";
     const spyMessage = vi.spyOn(message, "getSuccessMessage");
-    await setupGit(folder);
+    await setupGit(folder, false);
     expect(spyMessage).toHaveBeenCalledOnce();
     expect(spyMessage).toHaveBeenCalledWith("installed", "Git");
   });

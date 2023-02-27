@@ -1,4 +1,4 @@
-import { fs } from "zx";
+import { fs, $ } from "zx";
 import {
   devDependencies,
   updatePackageJsonScripts,
@@ -15,8 +15,11 @@ export const setupPrettier = (projectName: string) => {
   installPrettier();
   createPrettierRC(projectName);
   updatePackageJsonScripts(projectName, {
-    format: 'prettier --write "src/**/*.{ts,tsx}"',
-    "check-format": 'prettier --check "src/**/*.{ts,tsx}"',
+    format: "prettier --write .",
+    "check-format": "prettier --check .",
   });
   getWarningMessage("To be install", "Prettier");
 };
+
+export const formatProject = (projectName: string) =>
+  $`cd ${projectName} ; yarn format`;

@@ -8,6 +8,7 @@ const installGit = async (projectName: string) =>
 const ignored = [
   "node_modules/",
   "dist/",
+  ".parcel-cache/",
   ".env",
   ".DS_Store",
   "coverage/",

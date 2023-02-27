@@ -14,7 +14,7 @@ export const getWarningMessage = (action: string, text: string) => {
 };
 
 export const getErrorMessage = (text: string) => {
-  echo`🔥   ${chalk.rgb(244, 74, 38).underline("Error")}   ${chalk
+  return `🔥   ${chalk.rgb(244, 74, 38).underline("Error:")}   ${chalk
     .rgb(244, 74, 38)
     .bold(text)}`;
 };

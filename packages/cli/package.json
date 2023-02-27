@@ -22,12 +22,12 @@
     "copy:env": "cpy .env.production dist --rename=.env",
     "bundle": "rimraf dist && tsc",
     "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env",
-    "start": "NODE_ENV=development ts-node ./src/index.ts",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
     "typecheck": "tsc --noEmit",
     "test": "vitest --run --reporter=verbose",
+    "test-integration": "yarn build && IS_INTEGRATION=true vitest --run --reporter=verbose",
     "test-coverage": "vitest run --coverage"
   },
   "keywords": [
@@ -56,6 +56,7 @@
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-unused-imports": "1.1.5",
+    "folder-hash": "^4.0.4",
     "prettier": "2.8.3",
     "rimraf": "4.1.2",
     "ts-node": "10.8.0",

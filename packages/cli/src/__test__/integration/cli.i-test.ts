@@ -23,42 +23,57 @@ describe("SetApp cli tool", () => {
     }
   );
 
-  test("when specify projectName then create a default React project with that name", async () => {
-    const projectName = "../../../react";
-    const options = {
-      folders: { exclude: [".*", "node_modules", "dist"] },
-      files: {
-        include: [
-          "*.snap",
-          "*.jsx",
-          "*.ts",
-          "*.tsx",
-          "*.css",
-          "*.html",
-          ".prettierrc",
-          "LICENSE",
-          ".gitignore",
-          "README.md",
-          ".eslintrc.json",
-          "tsconfig.json",
-        ],
-      },
-    };
-    const reactExamplePath = join(dirName(), process.env["EXAMPLE_REACT"]!);
-    const reactPackage = fs.readJSONSync(
-      join(dirName(), process.env["EXAMPLE_REACT"]!, "package.json")
-    ) as PackageJSON;
-    const hashExample = await hashElement(reactExamplePath, options);
-    await createTool().parseAsync(["node", "cli", projectName, "--no-github"]);
-    const hashResult = await hashElement(getProjectPath(projectName), options);
-    const resultPackage = fs.readJSONSync(
-      join(getProjectPath(projectName), "package.json")
-    ) as PackageJSON;
-    rimrafSync(getProjectPath(projectName));
-    expect(hashResult).toStrictEqual(hashExample);
-    expect(resultPackage.dependencies).toStrictEqual(reactPackage.dependencies);
-    expect(resultPackage.devDependencies).toStrictEqual(
-      reactPackage.devDependencies
-    );
-  });
+  test.each(["REACT", "REACT-REDUX"])(
+    "when specify projectName then create a default %s project with that name",
+    async (type: string) => {
+      const projectName = process.env[`CI_TEST_${type}`]!;
+      const options = {
+        folders: { exclude: [".*", "node_modules", "dist"] },
+        files: {
+          include: [
+            "*.snap",
+            "*.jsx",
+            "*.ts",
+            "*.tsx",
+            "*.css",
+            "*.html",
+            ".prettierrc",
+            "LICENSE",
+            ".gitignore",
+            "README.md",
+            ".eslintrc.json",
+            "tsconfig.json",
+          ],
+        },
+      };
+      const examplePath = process.env[`EXAMPLE_${type}`]!;
+      const reactExamplePath = join(dirName(), examplePath);
+      const reactPackage = fs.readJSONSync(
+        join(dirName(), examplePath, "package.json")
+      ) as PackageJSON;
+      const hashExample = await hashElement(reactExamplePath, options);
+      await createTool().parseAsync([
+        "node",
+        "cli",
+        projectName,
+        `-t${type.toLowerCase()}`,
+        "--no-github",
+      ]);
+      const hashResult = await hashElement(
+        getProjectPath(projectName),
+        options
+      );
+      const resultPackage = fs.readJSONSync(
+        join(getProjectPath(projectName), "package.json")
+      ) as PackageJSON;
+      rimrafSync(getProjectPath(projectName));
+      expect(hashResult).toStrictEqual(hashExample);
+      expect(resultPackage.dependencies).toStrictEqual(
+        reactPackage.dependencies
+      );
+      expect(resultPackage.devDependencies).toStrictEqual(
+        reactPackage.devDependencies
+      );
+    }
+  );
 });

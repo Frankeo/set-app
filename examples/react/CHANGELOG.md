@@ -1,5 +1,15 @@
 # Changelog
 
+## [2.2.0](https://www.github.com/Frankeo/set-app/compare/react-v2.1.0...react-v2.2.0) (2023-02-28)
+
+### Features
+
+- **@set-app/cli:** add github project generation ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
+### Bug Fixes
+
+- **@set-app/react-redux:** fix inconsistencies in react-redux project files ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
 ## [2.1.0](https://www.github.com/Frankeo/set-app/compare/react-v2.0.0...react-v2.1.0) (2023-02-20)
 
 ### Features

@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.3...cli-v2.3.0) (2023-02-28)
+
+
+### Features
+
+* **@set-app/cli:** add github project generation ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
+
+### Bug Fixes
+
+* **@set-app/react-redux:** fix inconsistencies in react-redux project files ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
 ### [2.2.3](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.2...cli-v2.2.3) (2023-02-23)
 
 
@@ -28,6 +40,9 @@
 
 ## [2.2.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.2...cli-v2.2.0) (2023-02-23)
 
+* Relase stable cli ([27fe985](https://www.github.com/Frankeo/set-app/commit/27fe9859b24dbd50f40a23782e51511973f16ecf))
+
+## [2.1.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.0.0...cli-v2.1.0) (2023-02-20)
 
 ### Features
 

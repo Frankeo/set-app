@@ -1,20 +1,18 @@
 #!/usr/bin/env node
 
 import { config } from "dotenv";
-import { dirname } from "path";
-import { fileURLToPath } from "url";
+import { echo } from "zx";
 import { getProdEnv } from "./common/paths.js";
+import { getErrorMessage } from "./interface/messages.js";
 import { createTool } from "./interface/program-defenitions.js";
 
-// Don't move from this file, needs to take the reference
-export const dirName = () => dirname(fileURLToPath(import.meta.url));
-
 config({
-  path: process.env.NODE_ENV ? `.env.${process.env.NODE_ENV}` : getProdEnv(),
+  path: getProdEnv(),
 });
 
 try {
   await createTool().parseAsync();
 } catch (error) {
-  console.error(error);
+  const { message } = error as Error;
+  echo(getErrorMessage(message));
 }

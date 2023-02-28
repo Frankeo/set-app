@@ -5,7 +5,7 @@ import {
 import { getWarningMessage } from "./interface/messages.js";
 
 const installVitest = () => {
-  devDependencies.push("vitest@0.24.3");
+  devDependencies.push("vitest@0.27.2");
   devDependencies.push("@vitest/coverage-c8@0.28.4");
 };
 

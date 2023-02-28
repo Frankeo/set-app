@@ -1,0 +1,37 @@
+// Vitest Snapshot v1
+
+exports[`SetApp cli tool > when specify --help then show help and exit 1`] = `
+"Usage: cli [options] <name>
+
+Create and setup node projects
+
+Arguments:
+  name                project name
+
+Options:
+  -t, --type <value>  Type of node project (choices: \\"react\\", \\"react-redux\\",
+                      \\"console\\", default: \\"react\\")
+  --desc <value>      Add a description to your new project
+  --no-github         Not generate github public repository
+  -V, --version       output the version number
+  -h, --help          display help for command
+"
+`;
+
+exports[`SetApp cli tool > when specify -h then show help and exit 1`] = `
+"Usage: cli [options] <name>
+
+Create and setup node projects
+
+Arguments:
+  name                project name
+
+Options:
+  -t, --type <value>  Type of node project (choices: \\"react\\", \\"react-redux\\",
+                      \\"console\\", default: \\"react\\")
+  --desc <value>      Add a description to your new project
+  --no-github         Not generate github public repository
+  -V, --version       output the version number
+  -h, --help          display help for command
+"
+`;

@@ -22,10 +22,6 @@ yarn install
 yarn run test
 ```
 
-## Author
-
-👤 **Francisco Leonel Moreno Eraso <ingfrancisco.moreno1@gmail.com> (http://www.example.com/)**
-
 ## Show your support
 
 Give a ⭐️ if this project helped you!

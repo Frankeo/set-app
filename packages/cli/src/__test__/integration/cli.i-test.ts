@@ -66,11 +66,6 @@ describe("SetApp cli tool", () => {
       const resultPackage = fs.readJSONSync(
         join(getProjectPath(projectName), "package.json")
       ) as PackageJSON;
-      const resultReadme = fs.readFileSync(
-        join(getProjectPath(projectName), "README.md"),
-        "utf-8"
-      );
-      console.log(resultReadme);
       rimrafSync(getProjectPath(projectName));
       expect(hashResult).toStrictEqual(hashExample);
       expect(resultPackage.dependencies).toStrictEqual(

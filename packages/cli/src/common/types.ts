@@ -1,4 +1,5 @@
 export interface PackageJSON {
+  version: string;
   scripts: ScriptCommands;
   dependencies: Dependencies;
   devDependencies: Dependencies;
@@ -63,5 +64,3 @@ export enum ExampleOptions {
   CONSOLE = "CONSOLE",
   REDUX = "REACT-REDUX",
 }
-
-export type Examples = Record<ExampleOptions, string>;

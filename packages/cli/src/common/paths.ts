@@ -1,5 +1,6 @@
 import { join, dirname } from "path";
-import { dirName } from "../index.js";
+import { dirName } from "../differ-execution.js";
+
 import { ExampleOptions } from "./types.js";
 
 export const getProjectPath = (name: string) => join(process.cwd(), name);
@@ -25,14 +26,10 @@ export const getExample = (exampleName: ExampleOptions) => {
   const fullExampleName = `EXAMPLE_${exampleName.toUpperCase()}`;
   // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
   const examplePath = process.env[fullExampleName]!;
-  const exampleFullPath = process.env.NODE_ENV
-    ? examplePath
-    : join(dirName(), examplePath);
-  if (!exampleFullPath) throw new Error("No Example directory found!");
-  return exampleFullPath;
+  return join(dirName(), examplePath);
 };
 
 export const getExampleSrc = (exampleName: ExampleOptions): string => {
   const exampleSrc = getExample(exampleName);
-  return join(exampleSrc, "examples-src");
+  return join(exampleSrc, process.env.NODE_ENV ? "src" : "examples-src");
 };

@@ -8,6 +8,7 @@ const installGit = async (projectName: string) =>
 const ignored = [
   "node_modules/",
   "dist/",
+  ".parcel-cache/",
   ".env",
   ".DS_Store",
   "coverage/",
@@ -20,8 +21,10 @@ const createGitIgnore = (projectName: string) => {
   fs.appendFileSync(gitIgnoreFile, ignored.join("\n"));
 };
 
-export const setupGit = async (projectDirectory: string) => {
-  await installGit(projectDirectory);
+export const setupGit = async (projectDirectory: string, github: boolean) => {
+  if (!github) {
+    await installGit(projectDirectory);
+    getSuccessMessage("installed", "Git");
+  }
   createGitIgnore(projectDirectory);
-  getSuccessMessage("installed", "Git");
 };

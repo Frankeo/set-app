@@ -1,6 +1,6 @@
 {
   "name": "@set-app/cli",
-  "version": "2.1.1",
+  "version": "2.3.0",
   "description": "Create a react app without so much configuration going around. A lighter version of Create React App with enough config for start your react application but the right amount of power to generate a production ready bundle following Software Engeniering practices",
   "repository": {
     "type": "git",
@@ -10,23 +10,27 @@
   "type": "module",
   "main": "index.js",
   "bin": {
-    "setapp": "dist/index.js"
+    "cli": "dist/index.js"
   },
   "scripts": {
     "copy:tests": "cpy ../../examples/react/src/__tests__/ dist/examples/react/examples-src",
     "copy:examples-src": "cpy ../../examples/react/src/*.{ts,tsx,html,css} dist/examples/react/examples-src --flat",
     "copy:config": "cpy ../../examples/react/vite.config.ts dist/examples/react/",
+    "copy:readme": "cpy ../../README.md ./cli/README.md",
     "copy:tests-redux": "cpy ../../examples/react-redux/src/__tests__/ dist/examples/react-redux/examples-src",
     "copy:examples-src-redux": "cpy ../../examples/react-redux/src/*.{ts,tsx,html,css} dist/examples/react-redux/examples-src --flat",
     "copy:config-redux": "cpy ../../examples/react-redux/vite.config.ts dist/examples/react-redux/",
     "copy:env": "cpy .env.production dist --rename=.env",
     "bundle": "rimraf dist && tsc",
-    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env",
-    "start": "NODE_ENV=development ts-node ./src/index.ts",
+    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env && yarn copy:readme",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "vitest --run --reporter=verbose",
+    "test-integration-ci": "IS_INTEGRATION=true vitest --run --reporter=verbose",
+    "test-integration": "yarn build && IS_INTEGRATION=true vitest --run --reporter=verbose",
+    "test-coverage": "vitest run --coverage"
   },
   "keywords": [
     "CRA",
@@ -49,14 +53,16 @@
     "@types/node": "18.11.18",
     "@typescript-eslint/eslint-plugin": "5.40.1",
     "@typescript-eslint/parser": "5.40.1",
+    "@vitest/coverage-c8": "0.28.4",
     "cpy-cli": "4.2.0",
     "eslint": "8.33.0",
     "eslint-config-prettier": "8.6.0",
     "eslint-plugin-unused-imports": "1.1.5",
+    "folder-hash": "^4.0.4",
     "prettier": "2.8.3",
     "rimraf": "4.1.2",
     "ts-node": "10.8.0",
     "typescript": "4.8.4",
-    "vitest": "0.28.4"
+    "vitest": "0.27.2"
   }
 }

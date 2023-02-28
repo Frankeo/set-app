@@ -20,26 +20,12 @@
     "project": "./tsconfig.json",
     "ecmaVersion": 2022,
     "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true
-    }
+    "ecmaFeatures": { "jsx": true }
   },
-  "env": {
-    "es6": true,
-    "browser": true,
-    "node": true
-  },
+  "env": { "es6": true, "browser": true, "node": true },
   "settings": {
-    "react": {
-      "version": "detect"
-    },
-    "import/parsers": {
-      "@typescript-eslint/parser": [".ts", ".tsx"]
-    },
-    "import/resolver": {
-      "typescript": {
-        "alwaysTryTypes": true
-      }
-    }
+    "react": { "version": "detect" },
+    "import/parsers": { "@typescript-eslint/parser": [".ts", ".tsx"] },
+    "import/resolver": { "typescript": { "alwaysTryTypes": true } }
   }
 }

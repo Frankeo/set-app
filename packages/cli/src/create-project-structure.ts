@@ -1,15 +1,26 @@
 import { mkdirSync, existsSync } from "fs";
 import { getProjectPath, getSrcPath } from "./common/paths.js";
+import { createGithubRepo } from "./create-github-repo.js";
 import { getSuccessMessage } from "./interface/messages.js";
 
-export const createProjectStructure = (name: string) => {
+export const createProjectErrorMessage = (name: string) =>
+  `Project ${name} already exists!`;
+
+export const createProjectStructure = async (
+  name: string,
+  github: boolean,
+  desc: string
+) => {
   const projectDirectory = getProjectPath(name);
   if (existsSync(projectDirectory))
-    throw new Error(`Project ${name} already exists!`);
+    throw new Error(createProjectErrorMessage(name));
 
-  mkdirSync(projectDirectory);
-  getSuccessMessage("created", projectDirectory);
+  if (github) await createGithubRepo(name, desc);
+  else {
+    mkdirSync(projectDirectory);
+    getSuccessMessage("created", projectDirectory);
+  }
   const sourceDirectory = getSrcPath(name);
-  getSuccessMessage("created", sourceDirectory);
   mkdirSync(sourceDirectory);
+  getSuccessMessage("created", sourceDirectory);
 };

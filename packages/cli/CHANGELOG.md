@@ -1,5 +1,60 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.3...cli-v2.3.0) (2023-02-28)
+
+
+### Features
+
+* **@set-app/cli:** add github project generation ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
+
+### Bug Fixes
+
+* **@set-app/react-redux:** fix inconsistencies in react-redux project files ([24833e9](https://www.github.com/Frankeo/set-app/commit/24833e9927cef0a2c1cfa3992fd0e72763e314a7))
+
+### [2.2.3](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.2...cli-v2.2.3) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix Readme main and cli ([e82b3ae](https://www.github.com/Frankeo/set-app/commit/e82b3ae663f147aceef4caf0e7ee2df856877b00))
+
+
+### Reverts
+
+* **@set-app/cli:** revert license changes ([e82b3ae](https://www.github.com/Frankeo/set-app/commit/e82b3ae663f147aceef4caf0e7ee2df856877b00))
+
+### [2.2.2](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.1...cli-v2.2.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix readme generator invocation ([#40](https://www.github.com/Frankeo/set-app/issues/40)) ([06f6b41](https://www.github.com/Frankeo/set-app/commit/06f6b419d5a64e88b0a8a8cbe20653c3ff960fe0))
+
+### [2.2.1](https://www.github.com/Frankeo/set-app/compare/cli-v2.2.0...cli-v2.2.1) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix Readme with basic info for cli ([ed86a0d](https://www.github.com/Frankeo/set-app/commit/ed86a0dd5b20b1e39e52615ee9fc609960748d77))
+
+## [2.2.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.2...cli-v2.2.0) (2023-02-23)
+
+* Relase stable cli ([27fe985](https://www.github.com/Frankeo/set-app/commit/27fe9859b24dbd50f40a23782e51511973f16ecf))
+
+## [2.1.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.0.0...cli-v2.1.0) (2023-02-20)
+
+### Features
+
+* **@set-app/cli:** add readme to generated projects ([1378b3b](https://www.github.com/Frankeo/set-app/commit/1378b3b79350f647600073616ef2a670ccd60f17))
+
+### [2.1.2](https://www.github.com/Frankeo/set-app/compare/cli-v2.1.1...cli-v2.1.2) (2023-02-23)
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix bin command for npx usage ([5028d77](https://www.github.com/Frankeo/set-app/commit/5028d777351ed517608e574ec464cb2c854344f9))
+
 ## [2.1.1](https://www.github.com/Frankeo/set-app/compare/docs-v0.1.0...docs-v2.1.1) (2023-02-21)
 
 ### Miscellaneous Chores

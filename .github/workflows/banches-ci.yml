@@ -10,7 +10,7 @@ on:
 
 jobs:
   ci-tasks:
-    if: "!contains(github.event.pull_request.labels.*.name, 'autorelease')"
+    if: "!contains(github.event.pull_request.head.ref, 'release-please/branches/main')"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository

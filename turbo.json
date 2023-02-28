@@ -24,6 +24,9 @@
     },
     "typecheck": {
       "inputs": ["src/**/*.tsx", "src/**/*.ts", "tsconfig.json"]
+    },
+    "test-integration-ci": {
+      "inputs": ["src/**/*i-test.ts*"]
     }
   }
 }

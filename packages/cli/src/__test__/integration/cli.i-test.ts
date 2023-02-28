@@ -6,7 +6,7 @@ import { join } from "path";
 import { getProjectPath } from "../../common/paths";
 import { rimrafSync } from "rimraf";
 import { PackageJSON } from "../../common/types";
-import { fs, YAML } from "zx";
+import { fs } from "zx";
 
 describe("SetApp cli tool", () => {
   test.each(["-h", "--help"])(

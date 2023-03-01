@@ -1,13 +1,14 @@
-import { fs } from "zx";
+import { fs, $ } from "zx";
 import { tsConfigBasic } from "./common/json-contents.js";
+import { addDevDependency } from "./common/package-manager.js";
 import { getProjectPath } from "./common/paths.js";
-import {
-  devDependencies,
-  updatePackageJsonScripts,
-} from "./common/update-package-json-script.js";
-import { getWarningMessage } from "./interface/messages.js";
+import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
+import { getTaskWrapper } from "./interface/task-wrapper.js";
 
-const installTypescript = () => devDependencies.push("typescript@4.8.4");
+const installTypescript = async (projectName: string) => {
+  const dependency = await addDevDependency("typescript@4.8.4");
+  await $`cd ${projectName} ; ${dependency}`;
+};
 
 const createTsConfig = (projectName: string) => {
   const tsConfigFile = `${getProjectPath(projectName)}/tsconfig.json`;
@@ -15,11 +16,11 @@ const createTsConfig = (projectName: string) => {
   fs.writeJSONSync(tsConfigFile, tsConfigBasic);
 };
 
-export const setupTypescript = (projectName: string) => {
-  installTypescript();
-  createTsConfig(projectName);
-  updatePackageJsonScripts(projectName, {
-    typecheck: "tsc --noEmit",
+export const setupTypescript = async (projectName: string) =>
+  getTaskWrapper("Installing", "Installed", "Typescript", async () => {
+    await installTypescript(projectName);
+    createTsConfig(projectName);
+    updatePackageJsonScripts(projectName, {
+      typecheck: "tsc --noEmit",
+    });
   });
-  getWarningMessage("To be install", "Typescript");
-};

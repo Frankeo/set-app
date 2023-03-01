@@ -1,11 +1,6 @@
-import { beforeEach, describe, expect, test, vi } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import { fs } from "zx";
-import {
-  dependencies,
-  devDependencies,
-  updatePackageJsonDependencies,
-  updatePackageJsonScripts,
-} from "../common/update-package-json-script";
+import { updatePackageJsonScripts } from "../common/update-package-json-script";
 
 vi.mock("../common/paths", () => ({
   getPackageJson: (name: string) => name,
@@ -19,35 +14,6 @@ vi.mock("zx", () => ({
 }));
 
 const projectName = "name";
-
-describe("update package.json dependencies and devDependencies", () => {
-  beforeEach(() => {
-    dependencies.length = 0;
-    devDependencies.length = 0;
-  });
-
-  test.each(["example", "@example-@example", "@example-example"])(
-    "should work with name %s",
-    (dependency: string) => {
-      const number = "12.2.1";
-      dependencies.push(`${dependency}@${number}`);
-      devDependencies.push(`${dependency}@${number}`);
-      vi.mocked(fs.readJSONSync).mockReturnValueOnce({});
-      const spyWrite = vi.spyOn(fs, "writeJSONSync");
-      updatePackageJsonDependencies(projectName);
-      const result = {
-        dependencies: {
-          [dependency]: number,
-        },
-        devDependencies: {
-          [dependency]: number,
-        },
-      };
-      expect(spyWrite).toHaveBeenCalledOnce();
-      expect(spyWrite).toHaveBeenCalledWith(projectName, result);
-    }
-  );
-});
 
 describe("update package.json scripts", () => {
   test("should update new scripts preserving the previous ones", () => {

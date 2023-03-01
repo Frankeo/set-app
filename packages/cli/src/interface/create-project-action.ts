@@ -3,7 +3,6 @@ import { ExampleOptions } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
 import { createReadme } from "../create-readme.js";
-import { executeDependencies } from "../differ-execution.js";
 import { setupESlint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
 import { formatProject, setupPrettier } from "../setup-prettier.js";
@@ -12,6 +11,11 @@ import { setupRedux } from "../setup-redux.js";
 import { setupTypescript } from "../setup-typescript.js";
 import { setupVitest } from "../setup-vitest.js";
 import { getSucessProjectMsg } from "./messages.js";
+
+const removeBadSustitution = (str: string) =>
+  str.replace(new RegExp(/\$'[^']*'/, "g"), (value) =>
+    value.replace(new RegExp(/(\$')|(')/, "g"), "")
+  );
 
 export const createProjectAction = async (
   name: string,
@@ -22,16 +26,16 @@ export const createProjectAction = async (
   }: { type: ExampleOptions; desc: string; github: boolean }
 ) => {
   $.verbose = false;
+  $.quote = removeBadSustitution;
   await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
   await setupGit(name, github);
-  setupPrettier(name);
-  setupTypescript(name);
-  setupESlint(name);
-  setupVitest(name);
-  setupReact(name, type);
-  setupRedux(type);
-  await executeDependencies(name);
+  await setupPrettier(name);
+  await setupTypescript(name);
+  await setupESlint(name);
+  await setupVitest(name);
+  await setupReact(name, type);
+  await setupRedux(name, type);
   await createReadme(name);
   await formatProject(name);
   getSucessProjectMsg("Project", name, "created!");

@@ -1,6 +1,6 @@
 import { Command, Option } from "commander";
 import { createProjectAction } from "./create-project-action.js";
-import { getProjectVersion } from "./get-project-version.js";
+import { getProjectVersion } from "../common/get-project-version.js";
 import { getErrorMessage } from "./messages.js";
 
 export const createTool = () =>

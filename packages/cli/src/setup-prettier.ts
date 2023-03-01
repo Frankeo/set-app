@@ -1,25 +1,28 @@
 import { fs, $ } from "zx";
-import {
-  devDependencies,
-  updatePackageJsonScripts,
-} from "./common/update-package-json-script.js";
-import { getWarningMessage } from "./interface/messages.js";
+import { addDevDependency } from "./common/package-manager.js";
+import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
+import { getTaskWrapper } from "./interface/task-wrapper.js";
 
-const installPrettier = () => devDependencies.push("prettier@2.7.1");
+const installPrettier = async (projectName: string) => {
+  const dependency = await addDevDependency("prettier@2.7.1");
+  await $`cd ${projectName} ; ${dependency}`;
+};
 
 const createPrettierRC = (projectName: string) => {
   fs.appendFileSync(`${projectName}/.prettierrc`, "{}");
 };
 
-export const setupPrettier = (projectName: string) => {
-  installPrettier();
-  createPrettierRC(projectName);
-  updatePackageJsonScripts(projectName, {
-    format: "prettier --write .",
-    "check-format": "prettier --check .",
+export const setupPrettier = async (projectName: string) =>
+  getTaskWrapper("Installing", "Installed", "Prettier", async () => {
+    await installPrettier(projectName);
+    createPrettierRC(projectName);
+    updatePackageJsonScripts(projectName, {
+      format: "prettier --write .",
+      "check-format": "prettier --check .",
+    });
   });
-  getWarningMessage("To be install", "Prettier");
-};
 
-export const formatProject = (projectName: string) =>
-  $`cd ${projectName} ; yarn format`;
+export const formatProject = async (projectName: string) =>
+  getTaskWrapper("Formating", "Formated", projectName, async () => {
+    await $`cd ${projectName} ; yarn format`;
+  });

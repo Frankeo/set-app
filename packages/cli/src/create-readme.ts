@@ -1,7 +1,7 @@
 import { $ } from "zx";
-import { getSuccessMessage } from "./interface/messages.js";
+import { getTaskWrapper } from "./interface/task-wrapper.js";
 
-export const createReadme = async (projectPath: string) => {
-  await $`cd ${projectPath} ; npx --yes readme-md-generator -y ;`;
-  getSuccessMessage("created", "README.md");
-};
+export const createReadme = async (projectPath: string) =>
+  getTaskWrapper("Creating", "Created", "README.md", async () => {
+    await $`cd ${projectPath} ; npx --yes readme-md-generator -y ;`;
+  });

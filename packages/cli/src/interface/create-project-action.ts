@@ -3,7 +3,7 @@ import { ExampleOptions } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
 import { createReadme } from "../create-readme.js";
-import { setupESlint } from "../setup-eslint.js";
+import { setupESLint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
 import { formatProject, setupPrettier } from "../setup-prettier.js";
 import { setupReact } from "../setup-react.js";
@@ -32,7 +32,7 @@ export const createProjectAction = async (
   await setupGit(name, github);
   await setupPrettier(name);
   await setupTypescript(name);
-  await setupESlint(name);
+  await setupESLint(name);
   await setupVitest(name);
   await setupReact(name, type);
   await setupRedux(name, type);

@@ -17,7 +17,7 @@ const installESlint = async (projectName: string) => {
   await $`cd ${projectName} ; ${dependency}`;
 };
 
-export const setupESlint = async (projectName: string) =>
+export const setupESLint = async (projectName: string) =>
   getTaskWrapper("Installing", "Installed", "ESLint", async () => {
     await installESlint(projectName);
     generateESLintRc(projectName, esLintRCBasic);

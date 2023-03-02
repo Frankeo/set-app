@@ -1,4 +1,4 @@
-import { getInstallingMessage, getSuccessMessage } from "./messages.js";
+import { getLoadingMessage, getSuccessMessage } from "./messages.js";
 
 export const getTaskWrapper = async (
   actionBefore: string,
@@ -6,7 +6,7 @@ export const getTaskWrapper = async (
   taskName: string,
   task: () => Promise<void>
 ) => {
-  const loader = getInstallingMessage(actionBefore, taskName);
+  const loader = getLoadingMessage(actionBefore, taskName);
   await task();
   loader.stop();
   getSuccessMessage(actionAfter, taskName);

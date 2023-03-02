@@ -5,7 +5,7 @@ export const getSuccessMessage = (action: string, text: string) => {
   echo`✅   ${chalk.green.underline(`${action}:`)}   ${chalk.green.bold(text)}`;
 };
 
-export const getInstallingMessage = (action: string, text: string) =>
+export const getLoadingMessage = (action: string, text: string) =>
   generateLoader(
     `${chalk.rgb(101, 174, 247).underline(`${action}:`)}   ${chalk
       .rgb(101, 174, 247)

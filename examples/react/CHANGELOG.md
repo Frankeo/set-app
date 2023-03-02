@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://www.github.com/Frankeo/set-app/compare/react-v2.2.0...react-v2.3.0) (2023-03-02)
+
+
+### Features
+
+* **@set-app/cli:** add better UI and fix Integration testing ([757e449](https://www.github.com/Frankeo/set-app/commit/757e449b1c84bf79ce6a6d9d7c25ae3aa54ce573))
+
+
+### Bug Fixes
+
+* **@set-app:** fix Readmes according to new generation ([757e449](https://www.github.com/Frankeo/set-app/commit/757e449b1c84bf79ce6a6d9d7c25ae3aa54ce573))
+
 ## [2.2.0](https://www.github.com/Frankeo/set-app/compare/react-v2.1.0...react-v2.2.0) (2023-02-28)
 
 ### Features

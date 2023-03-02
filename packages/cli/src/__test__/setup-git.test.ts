@@ -20,6 +20,6 @@ describe("Test setupGit function", () => {
     const spyMessage = vi.spyOn(message, "getSuccessMessage");
     await setupGit(folder, false);
     expect(spyMessage).toHaveBeenCalledOnce();
-    expect(spyMessage).toHaveBeenCalledWith("installed", "Git");
+    expect(spyMessage).toHaveBeenCalledWith("Installed", "Git");
   });
 });

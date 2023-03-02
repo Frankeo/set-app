@@ -1,34 +1,12 @@
 import { describe, vi, expect, test } from "vitest";
 import { ExampleOptions } from "../common/types.js";
-import * as message from "../interface/messages.js";
-import { setupESlint as setupESLint } from "../setup-eslint.js";
+import * as wrapper from "../interface/task-wrapper";
+import { setupESLint } from "../setup-eslint.js";
 import { setupPrettier } from "../setup-prettier.js";
 import { setupReact } from "../setup-react.js";
+import { setupRedux } from "../setup-redux.js";
 import { setupTypescript } from "../setup-typescript.js";
 import { setupVitest } from "../setup-vitest.js";
-
-vi.mock("../common/update-package-json-script", () => ({
-  updatePackageJsonScripts: vi.fn(),
-  devDependencies: [],
-  dependencies: [],
-}));
-
-vi.mock("../setup-vite-react.js");
-
-vi.mock("zx", () => ({
-  fs: {
-    writeJSONSync: vi.fn(),
-    createFileSync: vi.fn(),
-    appendFileSync: vi.fn(),
-  },
-}));
-
-vi.mock("../common/paths", () => ({
-  getProjectPath: vi.fn(),
-}));
-
-vi.mock("../interface/messages.js");
-vi.mock("../common/generate-eslintrc.js");
 
 describe("Test Setup", () => {
   test.each([
@@ -37,17 +15,23 @@ describe("Test Setup", () => {
     ["ESLint", setupESLint],
     ["Vitest", setupVitest],
     ["React", setupReact],
+    ["Redux", setupRedux],
   ])(
-    "should generate a warning message for %s",
+    "should call getTaskWrapper for %s",
     (
       result: string,
       fn: (projectName: string, type: ExampleOptions) => void
     ) => {
       const projectName = "test";
-      const spyMessage = vi.spyOn(message, "getWarningMessage");
-      fn(projectName, ExampleOptions.REACT);
+      const spyMessage = vi.spyOn(wrapper, "getTaskWrapper");
+      fn(projectName, ExampleOptions.REDUX);
       expect(spyMessage).toHaveBeenCalledOnce();
-      expect(spyMessage).toHaveBeenCalledWith("To be install", result);
+      expect(spyMessage).toHaveBeenCalledWith(
+        "Installing",
+        "Installed",
+        result,
+        expect.anything()
+      );
     }
   );
 });

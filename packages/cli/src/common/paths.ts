@@ -1,5 +1,5 @@
 import { join, dirname } from "path";
-import { dirName } from "../differ-execution.js";
+import { dirName } from "../get-dir-name.js";
 
 import { ExampleOptions } from "./types.js";
 

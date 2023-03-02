@@ -1,7 +1,7 @@
 import { expect, test, describe } from "vitest";
 import { createTool } from "../../interface/program-defenitions";
 import { hashElement } from "folder-hash";
-import { dirName } from "../../differ-execution";
+import { dirName } from "../../get-dir-name";
 import { join } from "path";
 import { getProjectPath } from "../../common/paths";
 import { rimrafSync } from "rimraf";

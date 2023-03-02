@@ -2,40 +2,26 @@ import { chalk, echo } from "zx";
 import loading from "loading-cli";
 
 export const getSuccessMessage = (action: string, text: string) => {
-  echo`${chalk.green("✔️")}   ${chalk.green.underline(action)}   ${chalk
-    .rgb(35, 236, 172)
-    .bold(text)}`;
+  echo`✅   ${chalk.green.underline(`${action}:`)}   ${chalk.green.bold(text)}`;
 };
 
-export const getWarningMessage = (action: string, text: string) => {
-  echo`${chalk.rgb(255, 173, 51)("🔗")}   ${chalk
-    .rgb(255, 173, 51)
-    .underline(action)}   ${chalk.rgb(204, 0, 153).bold(text)}`;
-};
+export const getLoadingMessage = (action: string, text: string) =>
+  generateLoader(
+    `${chalk.rgb(101, 174, 247).underline(`${action}:`)}   ${chalk
+      .rgb(101, 174, 247)
+      .bold(text)}`
+  );
 
-export const getErrorMessage = (text: string) => {
-  return `🔥   ${chalk.rgb(244, 74, 38).underline("Error:")}   ${chalk
+export const getErrorMessage = (text: string) =>
+  `🔥   ${chalk.rgb(244, 74, 38).underline("Error:")}   ${chalk
     .rgb(244, 74, 38)
     .bold(text)}`;
-};
 
-export const generateLoader = (text: string) => {
+const generateLoader = (text: string) => {
   const loader = loading({
     text,
-    interval: 100,
-    frames: [
-      "🕐 ",
-      "🕑 ",
-      "🕒 ",
-      "🕓 ",
-      "🕔 ",
-      "🕕 ",
-      "🕖 ",
-      "🕗 ",
-      "🕘 ",
-      "🕙 ",
-      "🕚 ",
-    ],
+    interval: 160,
+    frames: ["🤘  ", "🤟  ", "🖖  ", "✋  ", "🤚  ", "👆  "],
   });
 
   return loader.start();
@@ -46,5 +32,7 @@ export const getSucessProjectMsg = (
   name: string,
   sufix: string
 ) => {
-  echo`✨ ${chalk.bold(`${prefix} ${chalk.rgb(35, 236, 172)(name)} ${sufix}`)}`;
+  echo`✨   ${chalk.bold(
+    `${prefix} ${chalk.rgb(35, 236, 172)(name)} ${sufix}`
+  )}`;
 };

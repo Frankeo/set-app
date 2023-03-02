@@ -30,7 +30,8 @@
     "test": "vitest --run --reporter=verbose",
     "test-integration-ci": "IS_INTEGRATION=true vitest --run --reporter=verbose",
     "test-integration": "yarn build && IS_INTEGRATION=true vitest --run --reporter=verbose",
-    "test-coverage": "vitest run --coverage"
+    "test-coverage": "vitest run --coverage",
+    "start": "yarn build && npm uninstall -g @set-app/cli && npm i -g ."
   },
   "keywords": [
     "CRA",
@@ -47,7 +48,7 @@
     "commander": "^10.0.0",
     "dotenv": "^16.0.3",
     "loading-cli": "^1.1.0",
-    "zx": "^7.1.1"
+    "zx": "7.1.1"
   },
   "devDependencies": {
     "@types/node": "18.11.18",

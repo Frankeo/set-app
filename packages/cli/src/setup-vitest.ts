@@ -1,20 +1,20 @@
-import {
-  devDependencies,
-  updatePackageJsonScripts,
-} from "./common/update-package-json-script.js";
-import { getWarningMessage } from "./interface/messages.js";
+import { $ } from "zx";
+import { addDevDependency } from "./common/package-manager.js";
+import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
+import { getTaskWrapper } from "./interface/task-wrapper.js";
 
-const installVitest = () => {
-  devDependencies.push("vitest@0.27.2");
-  devDependencies.push("@vitest/coverage-c8@0.28.4");
+const installVitest = async (projectName: string) => {
+  const dependencies = ["vitest@0.27.2", "@vitest/coverage-c8@0.28.4"];
+  const dependency = await addDevDependency(dependencies);
+  await $`cd ${projectName} ; ${dependency}`;
 };
 
-export const setupVitest = (projectName: string) => {
-  installVitest();
-  updatePackageJsonScripts(projectName, {
-    test: "vitest --run --reporter=verbose",
-    "test:watch": "vitest",
-    coverage: "vitest run --coverage",
+export const setupVitest = async (projectName: string) =>
+  getTaskWrapper("Installing", "Installed", "Vitest", async () => {
+    await installVitest(projectName);
+    updatePackageJsonScripts(projectName, {
+      test: "vitest --run --reporter=verbose",
+      "test:watch": "vitest",
+      coverage: "vitest run --coverage",
+    });
   });
-  getWarningMessage("To be install", "Vitest");
-};

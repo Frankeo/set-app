@@ -1,25 +1,28 @@
-import { fs } from "zx";
+import { $, fs } from "zx";
 import {
   getExample,
   getExampleSrc,
   getProjectPath,
   getSrcPath,
 } from "./common/paths.js";
-import {
-  devDependencies,
-  updatePackageJsonScripts,
-} from "./common/update-package-json-script.js";
+import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
 import { ExampleOptions } from "./common/types.js";
+import { addDevDependency } from "./common/package-manager.js";
 
-const installVite = () => {
-  devDependencies.push("vite@3.1.4");
-  devDependencies.push("@vitejs/plugin-react-swc@3.0.0");
+const installVite = async (projectName: string) => {
+  const dependencies = ["vite@3.1.4", "@vitejs/plugin-react-swc@3.0.0"];
+  const dependency = await addDevDependency(dependencies);
+  await $`cd ${projectName} ; ${dependency}`;
 };
 
-const installVitest = () => {
-  devDependencies.push("@testing-library/react@13.4.0");
-  devDependencies.push("happy-dom@7.6.0");
-  devDependencies.push("vitest-fetch-mock@0.2.1");
+const installVitest = async (projectName: string) => {
+  const dependencies = [
+    "@testing-library/react@13.4.0",
+    "happy-dom@7.6.0",
+    "vitest-fetch-mock@0.2.1",
+  ];
+  const dependency = await addDevDependency(dependencies);
+  await $`cd ${projectName} ; ${dependency}`;
 };
 
 const createViteConfig = (projectName: string, type: ExampleOptions) => {
@@ -33,12 +36,12 @@ const createSrcOutput = (projectName: string, type: ExampleOptions) => {
   fs.copySync(exampleSrcPath, getSrcPath(projectName), { overwrite: true });
 };
 
-export const setupViteForReact = (
+export const setupViteForReact = async (
   projectName: string,
   type: ExampleOptions
 ) => {
-  installVite();
-  installVitest();
+  await installVite(projectName);
+  await installVitest(projectName);
   createViteConfig(projectName, type);
   createSrcOutput(projectName, type);
   updatePackageJsonScripts(projectName, {

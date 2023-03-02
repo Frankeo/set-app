@@ -18,9 +18,9 @@ export const createProjectStructure = async (
   if (github) await createGithubRepo(name, desc);
   else {
     mkdirSync(projectDirectory);
-    getSuccessMessage("created", projectDirectory);
+    getSuccessMessage("Created", projectDirectory);
   }
   const sourceDirectory = getSrcPath(name);
   mkdirSync(sourceDirectory);
-  getSuccessMessage("created", sourceDirectory);
+  getSuccessMessage("Created", sourceDirectory);
 };

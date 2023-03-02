@@ -13,5 +13,5 @@ export const createGithubRepo = async (name: string, desc: string) => {
     $.verbose = false;
     await $`gh repo create ${name} --public --clone -d ${desc} -l ${license}`;
   }
-  getSuccessMessage("created", `${name} on github`);
+  getSuccessMessage("Created", `${name} on Github`);
 };

@@ -16,6 +16,10 @@ export interface ScriptCommands {
   test?: string;
   "test:watch"?: string;
   coverage?: string;
+  postinstall?: string;
+  "pre-commit"?: string;
+  prepack?: string;
+  postpack?: string;
 }
 
 interface ESLintRules {

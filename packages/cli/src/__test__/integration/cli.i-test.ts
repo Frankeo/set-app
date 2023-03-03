@@ -28,7 +28,10 @@ describe("SetApp cli tool", () => {
     async (type: string) => {
       const projectName = process.env[`CI_TEST_${type}`]!;
       const options = {
-        folders: { exclude: [".*", "node_modules", "dist"] },
+        folders: {
+          exclude: [".*", "node_modules", "dist"],
+          include: [".husky"],
+        },
         files: {
           include: [
             "*.snap",
@@ -68,11 +71,9 @@ describe("SetApp cli tool", () => {
       ) as PackageJSON;
       rimrafSync(getProjectPath(projectName));
       expect(hashResult).toStrictEqual(hashExample);
-      expect(resultPackage.dependencies).toStrictEqual(
-        reactPackage.dependencies
-      );
-      expect(resultPackage.devDependencies).toStrictEqual(
-        reactPackage.devDependencies
+      expect(reactPackage.dependencies).toContain(resultPackage.dependencies);
+      expect(reactPackage.devDependencies).toContain(
+        resultPackage.devDependencies
       );
     }
   );

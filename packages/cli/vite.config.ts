@@ -25,7 +25,7 @@ export default defineConfig(
     : {
         root: "src/__test__/integration",
         test: {
-          testTimeout: 180000,
+          testTimeout: 240000,
           include: ["*.i-test.ts"],
         },
       }

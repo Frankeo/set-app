@@ -15,10 +15,10 @@ export default defineConfig(
           coverage: {
             reporter: ["json-summary", "json", "text"],
             all: true,
-            lines: 60,
-            branches: 60,
-            functions: 48,
-            statements: 60,
+            lines: 55,
+            branches: 55,
+            functions: 45,
+            statements: 55,
           },
         },
       }

@@ -2,7 +2,7 @@
 sidebar_position: 2
 ---
 
-# Cli Commands
+# Cli Arguments
 
 ## Getting Started
 
@@ -20,7 +20,7 @@ We are going to find all the options available:
 `Version` and `Help` commands are not intended to use with other options and commands
 :::
 
-## Type Command
+## Type Argument
 
 The Tool was created to support 3 options: `React`, `React-Redux` and `Console`. `React` and `React-Redux` are implemented and `Console` will be release soon.
 
@@ -28,10 +28,18 @@ The default behaviour is `React`, if not `--type` is specified as you can see on
 
 `React-Redux`, option is covered on detail at [Other Projects Type](./other-projects-type.md)
 
-## Description Command
+## Description Argument
 
-This option sets **description** attribute on `package.json` that is used by the [readme generator](https://github.com/kefranabg/readme-md-generator) to fill the also the **Readme description** section.
+This option sets **description** attribute on `package.json` that is used by the [readme generator](https://github.com/kefranabg/readme-md-generator) to fill the also the **Readme description** section and also when we generate a **Github repository**.
 
-:::tip In the future 🚀
-This description is also going to be use for Github repository description
+## Github Argument
+
+The Github repository generation is activated **by default** and with the argument `--no-github`, we deactivated.
+
+By default a **Github public repository** will be created with the `name` that you chose and a `description`, if it was provided, plus a default `License`, taken from your npm configuration.
+
+For more information, please check the blog about it.
+
+:::warning Look out! 🧐
+When you disable the `Github repo generation`, you disable the `Github Actions` too!
 :::

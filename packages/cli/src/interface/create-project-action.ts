@@ -1,5 +1,5 @@
 import { $ } from "zx";
-import { ExampleOptions } from "../common/types.js";
+import { CliArguments } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
 import { createReadme } from "../create-readme.js";
@@ -22,11 +22,7 @@ const removeBadSustitution = (str: string) =>
 
 export const createProjectAction = async (
   name: string,
-  {
-    type,
-    desc,
-    github,
-  }: { type: ExampleOptions; desc: string; github: boolean }
+  { desc, github, type }: CliArguments
 ) => {
   $.verbose = false;
   $.quote = removeBadSustitution;

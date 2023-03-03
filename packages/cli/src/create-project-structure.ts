@@ -9,7 +9,7 @@ export const createProjectErrorMessage = (name: string) =>
 export const createProjectStructure = async (
   name: string,
   github: boolean,
-  desc: string
+  desc?: string
 ) => {
   const projectDirectory = getProjectPath(name);
   if (existsSync(projectDirectory))

@@ -1,5 +1,5 @@
 import { $ } from "zx";
-import { CliCommand } from "../common/types.js";
+import { CliArguments } from "../common/types.js";
 import { createPackageJson } from "../create-package-json.js";
 import { createProjectStructure } from "../create-project-structure.js";
 import { createReadme } from "../create-readme.js";
@@ -20,10 +20,10 @@ const removeBadSustitution = (str: string) =>
     value.replace(new RegExp(/(\$')|(')/, "g"), "")
   );
 
-export const createProjectAction = async ({
-  name,
-  arguments: { desc, github, type },
-}: CliCommand) => {
+export const createProjectAction = async (
+  name: string,
+  { desc, github, type }: CliArguments
+) => {
   $.verbose = false;
   $.quote = removeBadSustitution;
   await createProjectStructure(name, github, desc);

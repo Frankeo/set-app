@@ -3,7 +3,7 @@ import { getTaskWrapper } from "./interface/task-wrapper.js";
 
 export const createPackageJson = async (
   projectDirectory: string,
-  description: string
+  description?: string
 ) =>
   getTaskWrapper("Creating", "Created", "package.json", async () => {
     let packageDescription = "";

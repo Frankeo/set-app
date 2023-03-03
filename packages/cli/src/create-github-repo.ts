@@ -3,7 +3,7 @@ import { getSuccessMessage } from "./interface/messages.js";
 
 const getLicense = async () => $`npm config get init-license`;
 
-export const createGithubRepo = async (name: string, desc: string) => {
+export const createGithubRepo = async (name: string, desc?: string) => {
   const license = await getLicense();
   try {
     await $`gh repo create ${name} --public --clone -d ${desc} -l ${license}`;

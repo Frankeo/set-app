@@ -8,12 +8,21 @@ Let's discover **SetApp in less than 5 minutes**.
 
 ## Getting Started
 
+This tool check your **global package manager** configuration and will install the projects generated according to this.
+
+:::info Have in mind 😉
+For now we support `NPM` and `YARN`, `PNPM` will be added soon
+:::
+
 ### What you'll need
 
 - [Node.js](https://nodejs.org/en/download/) version 16.14 or above:
+
   - When installing Node.js, you are recommended to check all checkboxes related to dependencies.
 
-- [Git](https://git-scm.com/downloads) basic features are used so any version since 2015 are recommended
+- [Git](https://git-scm.com/downloads)
+
+- [Github CLI](https://cli.github.com/)
 
 ## Generate a new project
 
@@ -37,9 +46,12 @@ The basic template will generate a new **react** project with:
 - [React-Router](https://reactrouter.com/en/main)
 - [Happy-DOM](https://github.com/capricorn86/happy-dom)
 - [Coverage-C8](https://www.npmjs.com/package/@vitest/coverage-c8)
+- [Husky](https://www.npmjs.com/package/@vitest/coverage-c8)
+- [Commitizen](https://www.npmjs.com/package/@vitest/coverage-c8)
+- [Commitlint](https://www.npmjs.com/package/@vitest/coverage-c8)
 
 :::info Have in mind 😉
-The command also setups a GIT project with a `.gitignore` too. And of course, a beautiful `README.md`
+The command also setups a public Github project with a `.gitignore` too. And of course, a beautiful `README.md`
 :::
 
 :::tip Full transparency
@@ -61,6 +73,12 @@ The example project generated contains a basic example of some of the functional
 - Lazy Loading
 
 Please, check it out [here](https://stupendous-meerkat-980ca8.netlify.app)
+
+## Git History consistency
+
+Tools like: `husky`, `commitizen` and `commitlint` will help you to adopt a **git commit strategy** and prevent you to upload not suitable code to your remote repository! 👌🏻
+
+By default [conventional strategy](http) is prestablish but you can change it for some that suits you. Processes like **`linting`**, **`format`**, **`typecheck`** and **`tests`** are running on the behalve before every commit is made, so we avoid to found issues too late! 😣. If you are interesting on how is done or want to configure in a different way, we recommend you to read your blog for more info about this topic! 😉
 
 ## Your site commands
 

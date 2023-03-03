@@ -1,5 +1,19 @@
 # Changelog
 
+## [2.4.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.3.1...docs-v2.4.0) (2023-03-03)
+
+
+### Features
+
+* **@set-app/cli:** add Github Repo Generation ([e1124d1](https://www.github.com/Frankeo/set-app/commit/e1124d187a22b6e00403fa3d7f40fa18ac0046f0))
+* **@set-app/docs:** support docs for github repo generation ([e1124d1](https://www.github.com/Frankeo/set-app/commit/e1124d187a22b6e00403fa3d7f40fa18ac0046f0))
+
+
+### Bug Fixes
+
+* **@set-app/cli:** fix types ([e1124d1](https://www.github.com/Frankeo/set-app/commit/e1124d187a22b6e00403fa3d7f40fa18ac0046f0))
+* **@set-app/docs:** fix links ([e1124d1](https://www.github.com/Frankeo/set-app/commit/e1124d187a22b6e00403fa3d7f40fa18ac0046f0))
+
 ### [2.3.1](https://www.github.com/Frankeo/set-app/compare/docs-v2.3.0...docs-v2.3.1) (2023-02-23)
 
 

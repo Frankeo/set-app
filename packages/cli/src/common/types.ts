@@ -68,3 +68,14 @@ export enum ExampleOptions {
   CONSOLE = "CONSOLE",
   REDUX = "REACT-REDUX",
 }
+
+export interface CliCommand {
+  name: string;
+  arguments: CliArguments;
+}
+
+export interface CliArguments {
+  type: ExampleOptions;
+  desc: string;
+  github: boolean;
+}

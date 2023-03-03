@@ -10,23 +10,10 @@ It's a freshly new tool coming out, so we have a lot of opportunities to improve
 
 In our head right now, we have a list of features coming out soon:
 
-- [Github Project Generation](#github-project-generation)
 - [Github Action Workflow](#github-action-workflow)
 - [E2E Cypress Generation](#e2e-cypress-generation)
 - [Console Project Generation](#console-project-generation)
 - [Firebase Project Generation](#firebase-project-generation)
-
-## Github Project Generation
-
-The main idea is to generate a **public project** on [Github](https://github.com/) on your behalf when you are using the tool,
-so you don't have the need to go to your *browser* and you can do this all with one tool in one place! 😉
-
-The default functionality will be generate a github project, but if you want to avoid this,
-use the flag: `--no-github`
-
-:::danger
-When the flag `--no-github` is present, the **github action workflow** is going to be disable too!
-:::
 
 ## Github Action Workflow
 
@@ -42,7 +29,7 @@ Just as a reminder the presence of the flag `--no-deploy`, only affects the **gi
 ## E2E Cypress Generation
 
 [Cypress E2E](https://www.cypress.io) are going to be used to check the stability and integrity of changes and dependency updates on the example projects.
-Based on that, we could extract the dependencies and the process installation need it and added to the *projects generated* with the **cli**.
+Based on that, we could extract the dependencies and the process installation need it and added to the _projects generated_ with the **cli**.
 
 So, by default the [Cypress E2E](https://www.cypress.io) are going to be generated but if you don't need this, you could disable so using the flag: `--no-e2e`
 
@@ -58,7 +45,7 @@ The previous features (**github project generation** and **github action workflo
 ## Firebase Project Generation
 
 One of the most interesting new features is the generation and integration with the [firebase cloud](https://firebase.google.com).
-When this config is activated the *workflow* and even the *file project structre* would be adapted to support the **firebase projects**.
+When this config is activated the _workflow_ and even the _file project structre_ would be adapted to support the **firebase projects**.
 It's going to make possible that our projects have [authentication](https://firebase.google.com/products/auth), [storage](https://firebase.google.com/products/storage) and a ton more features by the hand of [firebase](https://firebase.google.com)
 
 This behaviour must be activated using the flag `--firebase`

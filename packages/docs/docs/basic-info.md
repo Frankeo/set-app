@@ -46,9 +46,9 @@ The basic template will generate a new **react** project with:
 - [React-Router](https://reactrouter.com/en/main)
 - [Happy-DOM](https://github.com/capricorn86/happy-dom)
 - [Coverage-C8](https://www.npmjs.com/package/@vitest/coverage-c8)
-- [Husky](https://www.npmjs.com/package/@vitest/coverage-c8)
-- [Commitizen](https://www.npmjs.com/package/@vitest/coverage-c8)
-- [Commitlint](https://www.npmjs.com/package/@vitest/coverage-c8)
+- [Husky](https://typicode.github.io/husky/#/)
+- [Commitizen](https://commitizen-tools.github.io/commitizen/)
+- [Commitlint](https://commitlint.js.org/#/)
 
 :::info Have in mind 😉
 The command also setups a public Github project with a `.gitignore` too. And of course, a beautiful `README.md`
@@ -78,7 +78,7 @@ Please, check it out [here](https://stupendous-meerkat-980ca8.netlify.app)
 
 Tools like: `husky`, `commitizen` and `commitlint` will help you to adopt a **git commit strategy** and prevent you to upload not suitable code to your remote repository! 👌🏻
 
-By default [conventional strategy](http) is prestablish but you can change it for some that suits you. Processes like **`linting`**, **`format`**, **`typecheck`** and **`tests`** are running on the behalve before every commit is made, so we avoid to found issues too late! 😣. If you are interesting on how is done or want to configure in a different way, we recommend you to read your blog for more info about this topic! 😉
+By default [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/) is prestablish but you can change it for some that suits you. Processes like **`linting`**, **`format`**, **`typecheck`** and **`tests`** are running on the behalve before every commit is made, so we avoid to found issues too late! 😣. If you are interesting on how is done or want to configure in a different way, we recommend you to read your blog for more info about this topic! 😉
 
 ## Your site commands
 

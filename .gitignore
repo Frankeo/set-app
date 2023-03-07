@@ -6,3 +6,5 @@ dist/
 coverage/
 .vscode/
 .turbo
+# Local Netlify folder
+.netlify

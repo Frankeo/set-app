@@ -11,7 +11,7 @@ const checkGlobalInstallation = async (pm: string) => {
 
 let detectedPM = "";
 
-const detectPackageManager = async () => {
+export const detectPackageManager = async () => {
   if (detectedPM) return detectedPM;
   const hasYarn = await checkGlobalInstallation("yarn");
   if (hasYarn) detectedPM = "yarn";

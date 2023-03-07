@@ -7,6 +7,7 @@ import { setupCommitizen } from "../setup-commitizen.js";
 import { setupCommitLint } from "../setup-commitlint.js";
 import { setupESLint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
+import { setupGithubAction } from "../setup-github-action.js";
 import { setupHusky } from "../setup-husky.js";
 import { formatProject, setupPrettier } from "../setup-prettier.js";
 import { setupReact } from "../setup-react.js";
@@ -29,6 +30,7 @@ export const createProjectAction = async (
   await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
   await setupGit(name, github);
+  await setupGithubAction(name);
   await setupPrettier(name);
   await setupTypescript(name);
   await setupESLint(name);

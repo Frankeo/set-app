@@ -91,3 +91,7 @@ export interface NetlifyConfig {
 export interface NetlifySiteInfo {
   site_id: string;
 }
+
+export interface NetlifyAccountInfo {
+  slug: string;
+}

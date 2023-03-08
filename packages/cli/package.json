@@ -21,8 +21,9 @@
     "copy:examples-src-redux": "cpy ../../examples/react-redux/src/*.{ts,tsx,html,css} dist/examples/react-redux/examples-src --flat",
     "copy:config-redux": "cpy ../../examples/react-redux/vite.config.ts dist/examples/react-redux/",
     "copy:env": "cpy .env.production dist --rename=.env",
+    "copy:workflows": "cpy **/workflows dist/workflows --flat",
     "bundle": "rimraf dist && tsc",
-    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env && yarn copy:readme",
+    "build": "yarn bundle && yarn copy:examples-src && yarn copy:tests && yarn copy:config && yarn copy:examples-src-redux && yarn copy:tests-redux && yarn copy:config-redux && yarn copy:env && yarn copy:readme && yarn copy:workflows",
     "format": "prettier --write \"src/**/*.ts\"",
     "check-format": "prettier --check \"src/**/*.ts\"",
     "lint": "eslint \"src/**/*.ts\" --quiet",
@@ -48,6 +49,8 @@
     "commander": "10.0.0",
     "dotenv": "16.0.3",
     "loading-cli": "1.1.0",
+    "netlify-cli": "^13.0.1",
+    "random-word": "^2.0.0",
     "zx": "7.1.1"
   },
   "devDependencies": {

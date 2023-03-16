@@ -75,6 +75,7 @@ export interface CliArguments {
   desc?: string;
   type: ExampleOptions;
   github: boolean;
+  deploy: boolean;
 }
 
 export interface NetlifyConfig {

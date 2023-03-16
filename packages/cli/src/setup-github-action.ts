@@ -76,7 +76,12 @@ const logInNetlify = async () => {
 const setSecret = async (name: string, secret: string, value: string) =>
   $`cd ${name} ; gh secret set ${secret} -b ${value}`;
 
-export const setupGithubAction = async (name: string) =>
+export const setupGithubAction = async (
+  name: string,
+  github: boolean,
+  deploy: boolean
+) => {
+  if (!github || !deploy) return;
   getTaskWrapper("Installing", "Installed", "Github Actions", async () => {
     const execCommand = await execCommandManager();
     await logInNetlify();
@@ -95,3 +100,4 @@ export const setupGithubAction = async (name: string) =>
       "build-ci": `${execCommand} coverage && ${execCommand} build`,
     });
   });
+};

@@ -23,7 +23,7 @@ const removeBadSustitution = (str: string) =>
 
 export const createProjectAction = async (
   name: string,
-  { desc, github, type }: CliArguments
+  { desc, github, type, deploy }: CliArguments
 ) => {
   $.verbose = false;
   $.quote = removeBadSustitution;

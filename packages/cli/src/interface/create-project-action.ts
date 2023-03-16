@@ -30,7 +30,7 @@ export const createProjectAction = async (
   await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
   await setupGit(name, github);
-  await setupGithubAction(name);
+  await setupGithubAction(name, github, deploy);
   await setupPrettier(name);
   await setupTypescript(name);
   await setupESLint(name);

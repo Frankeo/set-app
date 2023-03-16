@@ -2,12 +2,16 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
   "name": "Ubuntu",
-  // Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
-  "build":{
-    "dockerfile": "Dockerfile"
-  },
+  // Comment this for NPM Package Manager
+  "image": "mcr.microsoft.com/devcontainers/base:jammy",
+
+  // Uncomment this for NPM Package Manager
+  // "build": {
+  //   "dockerfile": "Dockerfile"
+  // },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1.0.9": {},
     "ghcr.io/devcontainers/features/node:1": {} //Comment this for NPM Package Manager
-  }
+  },
+  "remoteUser": "root"
 }

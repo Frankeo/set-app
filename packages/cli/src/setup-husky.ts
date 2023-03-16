@@ -1,5 +1,9 @@
 import { $ } from "zx";
-import { addDevDependency } from "./common/package-manager.js";
+import {
+  addDevDependency,
+  detectPackageManager,
+  execCommandManager,
+} from "./common/package-manager.js";
 import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
 import { getTaskWrapper } from "./interface/task-wrapper.js";
 
@@ -10,18 +14,22 @@ const installHusky = async (projectName: string) => {
 };
 
 const configPreCommit = async (projectName: string) => {
-  await $`cd ${projectName} ; npx husky add .husky/pre-commit "yarn pre-commit"`;
+  const execCommand = await execCommandManager();
+  await $`cd ${projectName} ; npx husky add .husky/pre-commit "${execCommand} pre-commit"`;
 };
 
 export const setupHusky = async (projectName: string) =>
   getTaskWrapper("Installing", "Installed", "Husky", async () => {
+    const execCommand = await execCommandManager();
+    const manager = await detectPackageManager();
     updatePackageJsonScripts(projectName, {
       postinstall: "husky install",
       prepack: "pinst --disable",
       postpack: "pinst --enable",
-      "pre-commit":
-        "yarn test && yarn lint && yarn check-format && yarn typecheck",
+      "pre-commit": `${execCommand} test && ${execCommand} lint && ${execCommand} check-format && ${execCommand} typecheck`,
     });
     await installHusky(projectName);
+    if (manager == "npm")
+      await $`cd ${projectName} ; ${execCommand} postinstall`;
     await configPreCommit(projectName);
   });

@@ -19,6 +19,12 @@ export const detectPackageManager = async () => {
   return detectedPM;
 };
 
+export const execCommandManager = async () => {
+  const pm = await detectPackageManager();
+  if (pm == "npm") return "npm run";
+  else return pm;
+};
+
 export const addDependency = async (dependency: string | string[]) => {
   const pm = await detectPackageManager();
   const result = Array.isArray(dependency) ? dependency.join(" ") : dependency;

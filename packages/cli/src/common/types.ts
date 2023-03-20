@@ -20,6 +20,8 @@ export interface ScriptCommands {
   "pre-commit"?: string;
   prepack?: string;
   postpack?: string;
+  ci?: string;
+  "build-ci"?: string;
 }
 
 interface ESLintRules {
@@ -73,4 +75,24 @@ export interface CliArguments {
   desc?: string;
   type: ExampleOptions;
   github: boolean;
+  deploy: boolean;
+}
+
+export interface NetlifyConfig {
+  userId: string;
+  users: {
+    [user: string]: {
+      auth: {
+        token: string;
+      };
+    };
+  };
+}
+
+export interface NetlifySiteInfo {
+  site_id: string;
+}
+
+export interface NetlifyAccountInfo {
+  slug: string;
 }

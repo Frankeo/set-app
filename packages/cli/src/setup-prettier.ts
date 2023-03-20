@@ -1,5 +1,8 @@
 import { fs, $ } from "zx";
-import { addDevDependency } from "./common/package-manager.js";
+import {
+  addDevDependency,
+  execCommandManager,
+} from "./common/package-manager.js";
 import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
 import { getTaskWrapper } from "./interface/task-wrapper.js";
 
@@ -24,5 +27,6 @@ export const setupPrettier = async (projectName: string) =>
 
 export const formatProject = async (projectName: string) =>
   getTaskWrapper("Formating", "Formated", projectName, async () => {
-    await $`cd ${projectName} ; yarn format`;
+    const execCommand = await execCommandManager();
+    await $`cd ${projectName} ; ${execCommand} format`;
   });

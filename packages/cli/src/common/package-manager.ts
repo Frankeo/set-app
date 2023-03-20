@@ -11,12 +11,18 @@ const checkGlobalInstallation = async (pm: string) => {
 
 let detectedPM = "";
 
-const detectPackageManager = async () => {
+export const detectPackageManager = async () => {
   if (detectedPM) return detectedPM;
   const hasYarn = await checkGlobalInstallation("yarn");
   if (hasYarn) detectedPM = "yarn";
   else detectedPM = "npm";
   return detectedPM;
+};
+
+export const execCommandManager = async () => {
+  const pm = await detectPackageManager();
+  if (pm == "npm") return "npm run";
+  else return pm;
 };
 
 export const addDependency = async (dependency: string | string[]) => {

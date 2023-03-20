@@ -7,6 +7,7 @@ import { setupCommitizen } from "../setup-commitizen.js";
 import { setupCommitLint } from "../setup-commitlint.js";
 import { setupESLint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
+import { setupGithubAction } from "../setup-github-action.js";
 import { setupHusky } from "../setup-husky.js";
 import { formatProject, setupPrettier } from "../setup-prettier.js";
 import { setupReact } from "../setup-react.js";
@@ -22,13 +23,14 @@ const removeBadSustitution = (str: string) =>
 
 export const createProjectAction = async (
   name: string,
-  { desc, github, type }: CliArguments
+  { desc, github, type, deploy }: CliArguments
 ) => {
   $.verbose = false;
   $.quote = removeBadSustitution;
   await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
   await setupGit(name, github);
+  await setupGithubAction(name, github, deploy);
   await setupPrettier(name);
   await setupTypescript(name);
   await setupESLint(name);

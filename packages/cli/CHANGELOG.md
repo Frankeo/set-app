@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.6.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.5.0...cli-v2.6.0) (2023-03-20)
+
+
+### Features
+
+* **@set-app/cli:** add Github actions ([#56](https://www.github.com/Frankeo/set-app/issues/56)) ([93501cd](https://www.github.com/Frankeo/set-app/commit/93501cdf1e7faabcadc7d05e7da675493de2ba27))
+
 ## [2.5.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.4.0...cli-v2.5.0) (2023-03-03)
 
 

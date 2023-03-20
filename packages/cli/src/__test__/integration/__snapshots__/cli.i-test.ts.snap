@@ -12,7 +12,8 @@ Options:
   -t, --type <value>  Type of node project (choices: \\"react\\", \\"react-redux\\",
                       \\"console\\", default: \\"react\\")
   --desc <value>      Add a description to your new project
-  --no-github         Not generate github public repository
+  --no-github         Not generate Github public repository
+  --no-deploy         Not generate Github-Action for deployment
   -V, --version       output the version number
   -h, --help          display help for command
 "
@@ -30,7 +31,8 @@ Options:
   -t, --type <value>  Type of node project (choices: \\"react\\", \\"react-redux\\",
                       \\"console\\", default: \\"react\\")
   --desc <value>      Add a description to your new project
-  --no-github         Not generate github public repository
+  --no-github         Not generate Github public repository
+  --no-deploy         Not generate Github-Action for deployment
   -V, --version       output the version number
   -h, --help          display help for command
 "

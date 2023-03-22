@@ -88,3 +88,32 @@ export const tsConfigBasic = {
     skipLibCheck: true,
   },
 };
+
+export const devContainerConfig = {
+  name: "Debian",
+  image: "mcr.microsoft.com/devcontainers/base:bullseye",
+  features: {
+    "ghcr.io/devcontainers/features/common-utils:1": {
+      installZsh: true,
+      installOhMyZsh: true,
+      upgradePackages: true,
+    },
+    "ghcr.io/devcontainers/features/node:1": {},
+  },
+  settings: {
+    "terminal.integrated.defaultProfile.linux": "zsh",
+    "terminal.integrated.profiles.linux": {
+      zsh: {
+        path: "/bin/zsh",
+      },
+    },
+  },
+  extensions: [
+    "zixuanchen.vitest-explorer",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "christian-kohler.npm-intellisense",
+    "tal7aouy.icons",
+    "dsznajder.es7-react-js-snippets",
+  ],
+};

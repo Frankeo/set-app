@@ -33,3 +33,13 @@ export const getExampleSrc = (exampleName: ExampleOptions): string => {
   const exampleSrc = getExample(exampleName);
   return join(exampleSrc, process.env.NODE_ENV ? "src" : "examples-src");
 };
+
+export const getDevContainer = (name: string): string => {
+  const projectPath = getProjectPath(name);
+  return join(projectPath, ".devcontainer");
+};
+
+export const getDevContainerJson = (name: string): string => {
+  const devContainer = getDevContainer(name);
+  return join(devContainer, "devcontainer.json");
+};

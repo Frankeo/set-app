@@ -33,5 +33,9 @@
     "christian-kohler.npm-intellisense",
     "tal7aouy.icons",
     "dsznajder.es7-react-js-snippets"
-  ]
+  ],
+  "mounts": [
+    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/workspaces,type=bind,consistency=cached"
+  ],
+  "remoteUser": "root"
 }

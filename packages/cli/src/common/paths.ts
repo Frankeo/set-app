@@ -34,6 +34,11 @@ export const getExampleSrc = (exampleName: ExampleOptions): string => {
   return join(exampleSrc, process.env.NODE_ENV ? "src" : "examples-src");
 };
 
+export const getVercelConfig = (name: string): string => {
+  const projectPath = getProjectPath(name);
+  return join(projectPath, ".vercel", "project.json");
+};
+
 export const getDevContainer = (name: string): string => {
   const projectPath = getProjectPath(name);
   return join(projectPath, ".devcontainer");

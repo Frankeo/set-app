@@ -7,6 +7,7 @@ export const esLintRCBasic: ESLintRC = {
     "prettier",
   ],
   plugins: ["@typescript-eslint"],
+  ignorePatterns: ["dist"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
     project: "./tsconfig.json",
@@ -46,6 +47,7 @@ export const esLintRCReact: ESLintRC = {
     "react/react-in-jsx-scope": 0,
     "@typescript-eslint/no-empty-function": 0,
   },
+  ignorePatterns: ["dist"],
   plugins: ["react", "import", "jsx-a11y", "@typescript-eslint"],
   parser: "@typescript-eslint/parser",
   parserOptions: {
@@ -87,6 +89,7 @@ export const tsConfigBasic = {
     strict: true,
     skipLibCheck: true,
   },
+  exclude: ["dist"],
 };
 
 export const devContainerConfig = {

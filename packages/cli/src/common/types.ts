@@ -34,6 +34,7 @@ export interface Dependencies {
 
 export interface ESLintRC {
   extends: string[];
+  ignorePatterns: string[];
   plugins: string[];
   parser: string;
   parserOptions: {
@@ -78,21 +79,11 @@ export interface CliArguments {
   deploy: boolean;
 }
 
-export interface NetlifyConfig {
-  userId: string;
-  users: {
-    [user: string]: {
-      auth: {
-        token: string;
-      };
-    };
-  };
+export interface VercelConfig {
+  token: string;
 }
 
-export interface NetlifySiteInfo {
-  site_id: string;
-}
-
-export interface NetlifyAccountInfo {
-  slug: string;
+export interface VercelProjectConfig {
+  projectId: string;
+  orgId: string;
 }

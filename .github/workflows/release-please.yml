@@ -26,8 +26,8 @@ jobs:
         with:
           node-version: 18
           cache: yarn
-          registry-url: 'https://registry.npmjs.org'
-          
+          registry-url: "https://registry.npmjs.org"
+
       - name: Install dependencies
         run: yarn install --frozen-lockfile
         if: ${{ steps.release.outputs.releases_created }}
@@ -35,7 +35,7 @@ jobs:
       - name: Build Packages
         run: yarn release
         if: ${{ steps.release.outputs.releases_created }}
-        
+
       - name: Deploy Docs to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         if: ${{ steps.release.outputs['packages/docs--release_created'] }}
@@ -50,12 +50,12 @@ jobs:
         if: ${{ steps.release.outputs['packages/cli--release_created'] }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        
+
       - name: Deploy Examples React to Netlify
         uses: nwtgck/actions-netlify@v1.2
         if: ${{ steps.release.outputs['examples/react--release_created'] }}
         with:
-          publish-dir: './examples/react/src/dist'
+          publish-dir: "./examples/react/dist"
           production-branch: main
           github-token: ${{ secrets.GTIHUB_SET_APP }}
           deploy-message: "Deploy from GitHub Actions"
@@ -67,7 +67,7 @@ jobs:
         uses: nwtgck/actions-netlify@v1.2
         if: ${{ steps.release.outputs['examples/react-redux--release_created'] }}
         with:
-          publish-dir: './examples/react-redux/src/dist'
+          publish-dir: "./examples/react-redux/dist"
           production-branch: main
           github-token: ${{ secrets.GTIHUB_SET_APP }}
           deploy-message: "Deploy from GitHub Actions"

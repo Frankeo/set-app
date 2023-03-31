@@ -4,7 +4,7 @@ import { updatePackageJsonScripts } from "./common/update-package-json-script.js
 import { getTaskWrapper } from "./interface/task-wrapper.js";
 
 const installVitest = async (projectName: string) => {
-  const dependencies = ["vitest@0.27.2", "@vitest/coverage-c8@0.28.4"];
+  const dependencies = ["vitest@0.28.5", "@vitest/coverage-c8@0.28.4"];
   const dependency = await addDevDependency(dependencies);
   await $`cd ${projectName} ; ${dependency}`;
 };

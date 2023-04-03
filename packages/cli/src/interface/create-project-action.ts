@@ -5,6 +5,7 @@ import { createProjectStructure } from "../create-project-structure.js";
 import { createReadme } from "../create-readme.js";
 import { setupCommitizen } from "../setup-commitizen.js";
 import { setupCommitLint } from "../setup-commitlint.js";
+import { setupDevContainer } from "../setup-dev-container.js";
 import { setupESLint } from "../setup-eslint.js";
 import { setupGit } from "../setup-git.js";
 import { setupGithubAction } from "../setup-github-action.js";
@@ -29,6 +30,7 @@ export const createProjectAction = async (
   $.quote = removeBadSustitution;
   await createProjectStructure(name, github, desc);
   await createPackageJson(name, desc);
+  await setupDevContainer(name);
   await setupGit(name, github);
   await setupGithubAction(name, github, deploy);
   await setupPrettier(name);

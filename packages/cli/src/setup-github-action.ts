@@ -1,54 +1,33 @@
 import path from "path";
 import { $, fs, os } from "zx";
-import {
-  NetlifyAccountInfo,
-  NetlifyConfig,
-  NetlifySiteInfo,
-} from "./common/types.js";
+import { VercelConfig, VercelProjectConfig } from "./common/types.js";
 import { dirName } from "./get-dir-name.js";
-import randomWord from "random-word";
 import {
   detectPackageManager,
   execCommandManager,
 } from "./common/package-manager.js";
-import { getProjectPath } from "./common/paths.js";
+import { getProjectPath, getVercelConfig } from "./common/paths.js";
 import { updatePackageJsonScripts } from "./common/update-package-json-script.js";
 import { getTaskWrapper } from "./interface/task-wrapper.js";
 
-const getNetlifyPath = () => {
-  if (os.platform() == "darwin") return "~/Library/Preferences/netlify";
+const getVercelPath = () => {
+  if (os.platform() == "darwin")
+    return "~/Library/Application Support/com.vercel.cli";
   else if (os.platform() == "win32")
-    return "~\\AppData\\Roaming\\netlify\\Config";
-  else return "~/.config/netlify";
+    return "%APPDATA%\\Roaming\\xdg.data\\com.vercel.cli";
+  else return "~/.local/share/com.vercel.cli";
 };
 
-const getNetlifyToken = async () => {
-  const absolutePath = await $`cd ${getNetlifyPath()} ; pwd`;
-  const configNetlify = fs.readJSONSync(
-    path.join(absolutePath.stdout.trim(), "config.json")
-  ) as NetlifyConfig;
-  return configNetlify.users[configNetlify.userId].auth.token;
+const getVercelToken = async () => {
+  const absolutePath = await $`cd ${getVercelPath()} ; pwd`;
+  const configVercel = fs.readJSONSync(
+    path.join(absolutePath.stdout.trim(), "auth.json")
+  ) as VercelConfig;
+  return configVercel.token;
 };
 
-const getSiteId = async (siteName: string) => {
-  const execCommand = await execCommandManager();
-  const siteResponse =
-    await $`cd ${dirName()} ; ${execCommand} netlify api listSites --data '{ "name": "${siteName}"}'`;
-  const sitesInfo = JSON.parse(
-    siteResponse.stdout.match(/\[(.|\n)*\]/)![0]
-  ) as unknown as NetlifySiteInfo[];
-  return sitesInfo[0].site_id;
-};
-
-const getAccountSlug = async () => {
-  const execCommand = await execCommandManager();
-  const accountsResponse =
-    await $`cd ${dirName()} ; ${execCommand} netlify api listAccountsForUser`;
-  const accountsInfo = JSON.parse(
-    accountsResponse.stdout.match(/\[(.|\n)*\]/)![0]
-  ) as unknown as NetlifyAccountInfo[];
-  return accountsInfo[0].slug;
-};
+const getProjectConfig = (name: string) =>
+  fs.readJSONSync(getVercelConfig(name)) as VercelProjectConfig;
 
 const generateWorkflows = async (name: string) => {
   const workflows = path.join(dirName(), "workflows");
@@ -63,12 +42,11 @@ const generateWorkflows = async (name: string) => {
   fs.copyFileSync(prFilePath, path.join(workflowOutputPath, "pr.yml"));
 };
 
-const logInNetlify = async () => {
-  const execCommand = await execCommandManager();
-  const isNotLogged = fs.existsSync(getNetlifyPath());
-  if (isNotLogged) {
+const loginVercel = async () => {
+  const isAuthenticated = fs.existsSync(getVercelPath());
+  if (!isAuthenticated) {
     $.verbose = true;
-    await $`cd ${dirName()} ; ${execCommand} netlify login`;
+    await $`vercel login --github`;
     $.verbose = false;
   }
 };
@@ -82,22 +60,27 @@ export const setupGithubAction = async (
   deploy: boolean
 ) => {
   if (!github || !deploy) return;
-  getTaskWrapper("Installing", "Installed", "Github Actions", async () => {
-    const execCommand = await execCommandManager();
-    await logInNetlify();
-    const netflifyToken = await getNetlifyToken();
-    await setSecret(name, "NETLIFY_TOKEN_SETAPP", netflifyToken);
-    const siteName = `${randomWord()}-${randomWord()}-${randomWord()}-${randomWord()}`;
-    const slug = await getAccountSlug();
-    await $`cd ${dirName()} ; ${execCommand} netlify api createSite --data '{ "account_slug": "${slug}",  "name": "${siteName}" }'`;
-    const siteId = await getSiteId(siteName);
-    await setSecret(name, "NETLIFY__SETAPP_SITE_ID", siteId);
-    const token = await $`gh auth token -h github.com`;
-    await setSecret(name, "GTIHUB_TOKEN", token.stdout);
-    await generateWorkflows(name);
-    updatePackageJsonScripts(name, {
-      ci: `${execCommand} check-format && ${execCommand} lint && ${execCommand} typecheck && ${execCommand} coverage`,
-      "build-ci": `${execCommand} coverage && ${execCommand} build`,
-    });
-  });
+  await getTaskWrapper(
+    "Installing",
+    "Installed",
+    "Github Actions",
+    async () => {
+      const execCommand = await execCommandManager();
+      await loginVercel();
+      const vercelToken = await getVercelToken();
+      await setSecret(name, "VERCEL_TOKEN", vercelToken);
+      await $`cd ${getProjectPath(name)} ; vercel git connect --yes`;
+      const { orgId, projectId } = getProjectConfig(name);
+      await setSecret(name, "ORG_ID", orgId);
+      await setSecret(name, "PROJECT_ID", projectId);
+      const token = await $`gh auth token -h github.com`;
+      await setSecret(name, "GTIHUB_TOKEN", token.stdout);
+      await generateWorkflows(name);
+      $.verbose = false;
+      updatePackageJsonScripts(name, {
+        ci: `${execCommand} check-format && ${execCommand} lint && ${execCommand} typecheck && ${execCommand} coverage`,
+        "build-ci": `${execCommand} coverage && ${execCommand} build`,
+      });
+    }
+  );
 };

@@ -1,4 +1,8 @@
-name: Netlify Pipeline Deploy
+name: Vercel Pipeline Deploy
+
+env:
+  VERCEL_ORG_ID: ${{ secrets.ORG_ID }}
+  VERCEL_PROJECT_ID: ${{ secrets.PROJECT_ID }}
 
 on:
   push:
@@ -24,13 +28,14 @@ jobs:
       - name: Build app
         run: npm run build-ci
 
-      - name: Deploy to Netlify
-        uses: nwtgck/actions-netlify@v1.2
-        with:
-          publish-dir: "./src/dist"
-          production-branch: main
-          github-token: ${{ secrets.GTIHUB_TOKEN }}
-          deploy-message: "Deploy from GitHub Actions"
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_TOKEN_SETAPP }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY__SETAPP_SITE_ID }}
+      - name: Install Vercel CLI
+        run: npm install --global vercel@latest
+
+      - name: Pull Vercel Environment Information
+        run: vercel pull --yes --environment=preview --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Build Project Artifacts
+        run: vercel build --prod --token=${{ secrets.VERCEL_TOKEN }}
+
+      - name: Deploy Project Artifacts to Vercel
+        run: vercel deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}

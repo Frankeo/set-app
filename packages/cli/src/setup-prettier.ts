@@ -15,10 +15,15 @@ const createPrettierRC = (projectName: string) => {
   fs.appendFileSync(`${projectName}/.prettierrc`, "{}");
 };
 
+const createPrettierIgnore = (projectName: string) => {
+  fs.appendFileSync(`${projectName}/.prettierignore`, "dist");
+};
+
 export const setupPrettier = async (projectName: string) =>
   getTaskWrapper("Installing", "Installed", "Prettier", async () => {
     await installPrettier(projectName);
     createPrettierRC(projectName);
+    createPrettierIgnore(projectName);
     updatePackageJsonScripts(projectName, {
       format: "prettier --write .",
       "check-format": "prettier --check .",

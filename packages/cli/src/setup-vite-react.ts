@@ -10,7 +10,7 @@ import { ExampleOptions } from "./common/types.js";
 import { addDevDependency } from "./common/package-manager.js";
 
 const installVite = async (projectName: string) => {
-  const dependencies = ["vite@4.1.4", "@vitejs/plugin-react-swc@3.0.0"];
+  const dependencies = ["vite@4.1.4", "@vitejs/plugin-react-swc@3.2.0"];
   const dependency = await addDevDependency(dependencies);
   await $`cd ${projectName} ; ${dependency}`;
 };

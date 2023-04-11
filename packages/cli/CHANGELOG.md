@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.7.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.6.0...cli-v2.7.0) (2023-04-11)
+
+
+### Miscellaneous Chores
+
+* **@set-app/cli:** release as 2.7.0 version ([bb7dc6d](https://www.github.com/Frankeo/set-app/commit/bb7dc6d79f7b0c2f97096f72e05c41674198daf1))
+* release 2.7.0 ([3fb8e72](https://www.github.com/Frankeo/set-app/commit/3fb8e725970ca2b224753d3cbd25dc08103a47bd))
+
 ## [2.6.0](https://www.github.com/Frankeo/set-app/compare/cli-v2.5.0...cli-v2.6.0) (2023-03-20)
 
 

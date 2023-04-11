@@ -9,7 +9,9 @@ vi.mock("zx", () => ({
     appendFileSync: vi.fn(),
   },
 }));
+
 vi.mock("../interface/messages.js");
+
 vi.mock("../common/paths.js", () => ({
   getProjectPath: vi.fn(),
 }));

@@ -9,7 +9,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: GoogleCloudPlatform/release-please-action@v2
+      - uses: google-github-actions/release-please-action@v3.1.2
         id: release
         with:
           token: ${{ secrets.GTIHUB_SET_APP }}

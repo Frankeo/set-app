@@ -62,7 +62,7 @@ jobs:
         if: ${{ steps.release.outputs['packages/images--release_created'] }}
         shell: bash
         run: |
-          VERSION_TAG=$(cat ./packages/images/version.txt)
+          echo "version_tag=$(cat ./packages/images/version.txt)" >> "$GITHUB_ENV" 
 
       - name: Build and push
         if: ${{ steps.release.outputs['packages/images--release_created'] }}
@@ -71,7 +71,7 @@ jobs:
           context: ./packages/images
           file: ./packages/images/Dockerfile
           push: true
-          tags: ${{ VERSION_TAG }}
+          tags: ${{ env.version_tag }}
 
       - name: Deploy Examples React to Netlify
         uses: nwtgck/actions-netlify@v1.2

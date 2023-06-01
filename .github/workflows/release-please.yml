@@ -63,7 +63,7 @@ jobs:
           context: ./packages/images
           file: ./packages/images/Dockerfile
           push: true
-          tags: ${{ steps.release.outputs.major }}
+          tags: franciscomoreno1/set-app:latest
 
       - name: Deploy Examples React to Netlify
         uses: nwtgck/actions-netlify@v1.2

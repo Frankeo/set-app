@@ -57,18 +57,13 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Generate Version Docker Tag
-        shell: bash
-        run: |
-          echo "version_tag=$(cat ./packages/images/version.txt)" >> "$GITHUB_ENV" 
-
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
           context: ./packages/images
           file: ./packages/images/Dockerfile
           push: true
-          tags: ${{ env.version_tag }}
+          tags: ${{ steps.release.outputs.tag_name }}
 
       - name: Deploy Examples React to Netlify
         uses: nwtgck/actions-netlify@v1.2

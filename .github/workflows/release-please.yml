@@ -60,7 +60,8 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v4
         with:
-          context: "{{defaultContext}}:/packages/images"
+          context: .
+          file: ./packages/images/Dockerfile
           push: true
           tags: franciscomoreno1/set-app:latest
 

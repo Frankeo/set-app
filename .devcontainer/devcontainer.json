@@ -2,13 +2,7 @@
 // README at: https://github.com/devcontainers/templates/tree/main/src/alpine
 {
   "name": "Ubuntu",
-  // Comment this for NPM Package Manager
   "image": "mcr.microsoft.com/devcontainers/base:jammy",
-
-  // Uncomment this for NPM Package Manager
-  // "build": {
-  //   "dockerfile": "Dockerfile"
-  // },
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1.0.9": {},
     "ghcr.io/devcontainers/features/common-utils:1": {
@@ -16,7 +10,7 @@
       "installOhMyZsh": true,
       "upgradePackages": true
     },
-    "ghcr.io/devcontainers/features/node:1": {} //Comment this for NPM Package Manager
+    "ghcr.io/devcontainers/features/node:1": {}
   },
   "settings": {
     "terminal.integrated.defaultProfile.linux": "zsh",
@@ -33,9 +27,5 @@
     "christian-kohler.npm-intellisense",
     "tal7aouy.icons",
     "dsznajder.es7-react-js-snippets"
-  ],
-  "mounts": [
-    "source=${localEnv:HOME}${localEnv:USERPROFILE},target=/workspaces,type=bind,consistency=cached"
-  ],
-  "remoteUser": "root"
+  ]
 }

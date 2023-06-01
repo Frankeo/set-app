@@ -1,5 +1,6 @@
 {
   "bootstrap-sha": "c61288c310459477127e826256b112431e3f01f0",
+  "last-release-sha": "d5912e5e3b3a607dfd601f9e07afc9f315fdfa8b",
   "packages": {
     "packages/cli": {},
     "packages/docs": {},

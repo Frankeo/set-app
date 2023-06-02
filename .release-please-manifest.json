@@ -2,6 +2,6 @@
   "examples/react": "2.3.0",
   "examples/react-redux": "1.3.0",
   "packages/cli": "2.7.0",
-  "packages/images": "2.7.1",
+  "packages/images": "1.0.0",
   "packages/docs": "2.4.0"
 }

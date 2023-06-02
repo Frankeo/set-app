@@ -1,5 +1,19 @@
 # Changelog
 
+### [2.7.1](https://github.com/Frankeo/set-app/compare/docs-v2.4.0...docs-v2.7.1) (2023-06-02)
+
+
+### Features
+
+* create docker image ([5baa816](https://github.com/Frankeo/set-app/commit/5baa816d515a46a555294fe978d82dda5c01dccf))
+* **packages/docs:** add DevContainer blog entry ([480e7aa](https://github.com/Frankeo/set-app/commit/480e7aa785360e1f33014e07d8775ddcf77017a6))
+
+
+### Miscellaneous Chores
+
+* **@set-app/cli:** release as 2.7.1 version ([d5912e5](https://github.com/Frankeo/set-app/commit/d5912e5e3b3a607dfd601f9e07afc9f315fdfa8b))
+* release 2.7.0 ([3fb8e72](https://github.com/Frankeo/set-app/commit/3fb8e725970ca2b224753d3cbd25dc08103a47bd))
+
 ## [2.4.0](https://www.github.com/Frankeo/set-app/compare/docs-v2.3.1...docs-v2.4.0) (2023-03-03)
 
 

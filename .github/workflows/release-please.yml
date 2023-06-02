@@ -62,7 +62,7 @@ jobs:
         with:
           file: "packages/images/Dockerfile"
           push: true
-          tags: franciscomoreno1/set-app:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/set-app:${{ steps.release.outputs.tag_name }}
 
       - name: Deploy Examples React to Netlify
         uses: nwtgck/actions-netlify@v1.2

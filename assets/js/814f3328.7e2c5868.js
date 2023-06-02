@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Dev Containers and my \\"local\\" approach","permalink":"/set-app/blog/dev-containers"},{"title":"Default Values","permalink":"/set-app/blog/default-values"}]}')}}]);

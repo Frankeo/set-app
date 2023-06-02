@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[535],{5641:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Default Values","permalink":"/set-app/blog/default-values"}]}')}}]);

@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[859],{5187:s=>{s.exports=JSON.parse('{"label":"docker","permalink":"/set-app/blog/tags/docker","allTagsPath":"/set-app/blog/tags","count":1}')}}]);

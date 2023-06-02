@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[997],{9703:s=>{s.exports=JSON.parse('{"label":"dev-containers","permalink":"/set-app/blog/tags/dev-containers","allTagsPath":"/set-app/blog/tags","count":1}')}}]);

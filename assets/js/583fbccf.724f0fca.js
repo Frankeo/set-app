@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunk_set_app_docs=self.webpackChunk_set_app_docs||[]).push([[240],{2344:s=>{s.exports=JSON.parse('{"label":"vscode","permalink":"/set-app/blog/tags/vscode","allTagsPath":"/set-app/blog/tags","count":1}')}}]);
